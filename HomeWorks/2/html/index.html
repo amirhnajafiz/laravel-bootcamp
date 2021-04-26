@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 2 HTML page</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			color: #404040;
+		}
+		
+		body {
+			font-size: 16px;
+			font-family: 'Trebuchet MS', sans-serif;
+		}
+		
+		.black-context {
+			color: #000000;
+		}
+		
+		.orange-context {
+			color: #ffa73b;
+		}
+		
+		.container {
+			width: 60%;
+			height: 100vh;
+			background-color: #e6e6e6;
+			padding: 10px 15px;
+			margin: 0 auto;
+		}
+		
+		.container-body {
+			background-color: #ffffff;
+		}
+		
+		.container-body-header {
+			text-align: center;
+			padding: 20px 10px;
+		}
+		
+		.container-body-article {
+			padding: 20px;
+		}
+		
+		.confirm-btn {
+			width: 200px;
+			height: 50px;
+			padding: 10px 15px;
+			background-color: #ffa73b;
+			color: #ffffff;
+			outline: none;
+			border: 0 solid black;
+		}
+		
+		.container-article {
+			text-align: center;
+			padding: 30px 20px;
+			margin: 30px 0;
+			background: rgb(255, 219, 169);
+		}
+		
+		.container-footer {
+			padding: 20px;
+		}
+		
+		.container-footer > ul {
+			list-style-type: none;
+			margin-bottom: 20px;
+		}
+		
+		li {
+			display: inline-block;
+		}
+		
+		.dasher::after {
+			content: " - ";
+		}
+		
+		a {
+			color: #000000;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+    <div class="container">
+        <div class="container-body">
+			<div class="container-body-header">
+				<h1 class="black-context">Welcome!</h1>
+				<p style="margin: 30px 0;">
+					We're exited to have you get started. First, you need to confirm your account. Just press the button below.
+				</p>
+				<button class="confirm-btn">Confirm Account</button>
+			</div>
+            <div class="container-body-article">
+				<p>
+					If that doesn't work, copy and paste the following link in your browser:<br /><br />
+					<a href="" class="orange-context">XXX.XXXXXXX.XXX / XXXXXXXXXXXXX</a><br /><br />
+					If you have any questions, just reply to this email-we're always happy to help out.
+				</p>
+				<br /><br />
+				<p>
+					<b>Cheers,</b><br />
+					The Ceej Team
+				</p>
+			</div>
+        </div>
+        <div class="container-article">
+			<p>
+				<span class="black-context">Need more help?</span><br />
+				<a href="" class="orange-context">We're here, ready to talk</a>
+			</p>
+		</div>
+        <div class="container-footer">
+			<ul>
+				<li class="dasher"><a href="">Dashboard</a></li>
+				<li class="dasher"><a href="">Billing</a></li>
+				<li><a href="">Help</a></li>
+			</ul>
+			<p>
+				You received this email because you just signed up for a new account. If it looks weird, <a href="">view it in your browser</a>.<br /><br />
+				If these emails get annoying, please feel free to <a href="">unsubscribe</a>.<br /><br />
+				Ceej - 1234 Main Stree - Anywhare, MA - 56789
+			</p>
+		</div>
+    </div>
+</body>
+</html>
