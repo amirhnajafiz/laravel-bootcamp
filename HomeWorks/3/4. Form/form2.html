@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Form Two</title>
+		<style>
+			.header, container {
+				text-align: center;
+				width:100%;
+				margin: 10px auto;
+			}
+			
+			.centerlize {
+				margin: 0 auto;
+				text-align: center;
+			}
+			
+			.modify_input {
+				width: 200px;
+				padding: 8px;
+				border-radius: 5px;
+				outline: none;
+				border: 1px solid black;
+			}
+			
+			.left-td {
+				text-align: left;
+			}
+			
+			td {
+				padding: 5px;
+			}
+			
+			table {
+				border-collapse: collapse;
+				background-color: #cc6600;
+				border-radius: 5px;
+			}
+			
+			select {
+				width: 200px;
+				padding: 10px;
+			}
+			
+			textarea {
+				width: 250px;
+				resize: vertical;
+				padding: 5px;
+				border-radius: 5px;
+				outline: none;
+			}
+			
+			input[type="submit"] {
+				width: 80px;
+				padding: 10px;
+				border-radius: 15px;
+				outline: none;
+			}
+			
+			.save-btn {
+				background-color: #ccffff;
+				border: 2px solid #0066ff;
+			}
+			
+			.cancel-btn {
+				background-color: #0066ff;
+				color: #ffffff;
+				border: 2px solid #ffffff;
+			}
+			
+			.resize-btn {
+				background-color: #737373;
+				color: #ffffff;
+				border: 2px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div class="header"> <!-- Top header -->
+				<h2>KM Custome HTML Form Example Using AppleScript</h2>
+				<p>
+					(by JMichealTX)
+				</p>
+			</div>
+			<div class="container centerlize"> <!-- Page body -->
+				<form action="" target="" method="GET">
+					<table class="centerlize" border="1" width="800" height="400">
+						<tr>
+							<td class="left-td"> <!-- Name -->
+								<h2><label for="name">Name:</label></h2>
+							</td>
+							<td>
+								<input 
+									class="modify_input" 
+									type="text" 
+									id="name" 
+									name="form-name" 
+									value="John AppleScript" 
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td class="left-td"> <!-- Email -->
+								<h2><label for="email">Email:</label></h2>
+							</td>
+							<td>
+								<input 
+									class="modify_input"  
+									type="email" 
+									id="email" 
+									name="form-email" 
+									value="johnny@AppleScript.com" 
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td class="left-td"> <!-- Password -->
+								<h2><label for="pass">Password:</label></h2>
+							</td>
+							<td>
+								<input 
+									class="modify_input"  
+									type="password" 
+									id="pass" 
+									name="form-pass" 
+									value="" 
+								/>
+							</td>
+						</tr>
+						<tr>
+							<td class="left-td"> <!-- Approval -->
+								<h2><label>Approval Required:</label></h2>
+								<p>Click on the button or text to check/uncheck.</p>
+							</td>
+							<td>
+								<input type="checkbox" id="app" name="app" />
+								<label for="app">Do you approve?</label>
+							</td>
+						</tr>
+						<tr>
+							<td class="left-td"> <!-- Pick -->
+								<h2><label>Pick Your Favorite:</label></h2>
+								<p>Click n the button or text to select.</p>
+							</td>
+							<td>
+								<input type="radio" id="1" name="choice" />
+								<label for="1">Choice A</label><br />
+								<input type="radio" id="2" name="choice" />
+								<label for="2">Choice B</label><br />
+								<input type="radio" id="3" name="choice" />
+								<label for="3">Choice C</label><br />
+							</td>
+						</tr>
+						<tr>
+							<td class="left-td"> <!-- Popup -->
+								<h2><label>Popup Menu:</label></h2>
+							</td>
+							<td>
+								<select name="city">
+									<option value="1">
+										Texas -- TX
+									</option>
+									<option value="2">
+										Miami -- MI
+									</option>
+									<option value="3">
+										Tennessi -- TS
+									</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="left-td"> <!-- List -->
+								<h2><label>List</label><br /></h2>
+								<p>
+									Setup Options:<br />
+									<ul>
+										<li>Number of rows to display</li>
+										<li>Allow Multi-select</li>
+									</ul>
+								</p>
+							</td>
+							<td>
+								<select name="state" id="states" size="5" multiple>
+									<option value="1">California -- CA</option>
+									<option value="2">Colorado -- CO</option>
+									<option value="3">Connecticut -- CN</option>
+									<option value="4">Dalifornia -- DA</option>
+									<option value="5">Dolorado -- DO</option>
+									<option value="6">Polorado -- PO</option>
+									<option value="7">Solorado -- SO</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="left-td"> <!-- KM -->
+								<h2><label for="KM">Field Ignored by KM</label></h2>
+							</td>
+							<td>
+								<input 
+									class="modify_input"  
+									type="text" 
+									id="KM" 
+									name="kminput" 
+									value="10,384" />
+							</td>
+						</tr>
+						<tr>
+							<td class="left-td"> <!-- Textarea -->
+								<h2><label for="ta">Text Area</label></h2>
+							</td>
+							<td>
+								<textarea 
+									id="ta" 
+									name="comment">
+								</textarea>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2"> <!-- Submit row -->
+								<div style="margin: 10px;">
+									<input 
+										class="save-btn" 
+										type="submit" 
+										name="save" 
+										value="Save" 
+									/>
+									<input 
+										class="cancel-btn" 
+										type="submit" 
+										name="cancel" 
+										value="Cancel" 
+									/>
+									<input 
+										class="resize-btn" 
+										type="submit" 
+										name="resize" 
+										value="Resize" 
+									/>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

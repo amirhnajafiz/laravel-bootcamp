@@ -1,0 +1,128 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Form One</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			html {
+				direction: ltr;
+				font-size: 1.12em;
+			}
+			
+			h2 {
+				margin-bottom: 50px;
+			}
+			
+			label {
+				display: block;
+			}
+			
+			input {
+				padding: 5px;
+			}
+			
+			.normal_label {
+				display: inline-block;
+			}
+			
+			.row {
+				display: block;
+				width: 40%;
+				margin-left: 50px;
+				margin-bottom: 25px;
+				padding-bottom: 10px;
+				border-bottom: 1px solid black;
+			}
+			
+			.resetborder {
+				border: 0px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div> <!-- Header -->
+				<h2>* denotes mandotory</h2>
+			</div>
+			<div> <!-- Body -->
+				<form target="" action="" method="GET">
+					<div class="row"> <!-- Name -->
+						<label for="form-fullname">Full name* :</label>
+						<input 
+							id="form-fullname" 
+							type="text" 
+							name="fullname" 
+							placeholder="FirstName LastName" 
+							required 
+						/>
+					</div>
+					<div class="row"> <!-- Email -->
+						<label for="form-email">Email address* :</label>
+						<input 
+							id="form-email" 
+							type="email" 
+							name="email" 
+							placeholder="EMAIL_ADDRESS" 
+							required 
+						/>
+					</div>
+					<div class="row"> <!-- Tour Package -->
+						<label for="form-selection">Select Tour Package* :</label>
+						<select id="form-selection" name="pack">
+							<option value="1" selected>Goa</option>
+							<option value="2">Europe</option>
+							<option value="3">Classic</option>
+						</select>
+					</div>
+					<div class="row"> <!-- Arrival -->
+						<label for="form-date">Arrival date* :</label>
+						<input 
+							id="form-date" 
+							type="date" 
+							name="arrive" 
+							placeholder="m/d/y" 
+							required 
+						/>
+					</div>
+					<div class="row"> <!-- Number -->
+						<label for="form-number-of-persons">Number of persons* :</label>
+						<input 
+							id="form-number-of-persons" 
+							type="text" name="persons" 
+							placeholder="UNKOWN_TYPE" 
+							required
+						/>
+					</div>
+					<div class="row"> <!-- Avail -->
+						<label>What would you want to avail?*</label>
+						<label class="normal_label" for="board">Boarding</label>
+						<input id="board" name="avail" value="1" type="checkbox" /><br />
+						<label class="normal_label" for="food">Fooding</label>
+						<input id="food" name="avail" value="2" type="checkbox" /><br />
+						<label class="normal_label" for="sight">Sight seeing</label>
+						<input id="sight" name="avail" value="3" type="checkbox" />
+					</div>
+					<div class="row"> <!-- Coupon -->
+						<label for="discount">Discout Coupon Code:</label>
+						<input id="discount" name="dcode" placeholder="UNKOWN_TYPE" type="text" />
+					</div>
+					<div class="row"> <!-- Terms -->
+						<label for="terms">Terms and conditions*</label>
+						<input id="agree" name="term" value="1" type="radio" selected />
+						<label class="normal_label" for="agree">I agree</label>
+						<input id="disagree" name="term" value="0" type="radio" />
+						<label class="normal_label" for="disagree">I disagree</label>
+					</div>
+					<div class="row resetborder"> <!-- Submit -->
+						<input type="submit" name="submit" value="Complete reservation" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
