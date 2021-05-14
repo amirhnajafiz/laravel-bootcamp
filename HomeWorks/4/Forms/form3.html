@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up Form</title>
+    <style>
+        .container {
+            width: 30%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            background-color: #011116;
+            padding: 10px 0;
+        }
+
+        .button {
+            text-align: center;
+            margin: 0 auto;
+            padding: 10px;
+            width: 96%;
+        }
+
+        td {
+            text-align: center;
+            padding: 10px;
+        }
+
+        input {
+            padding: 5px;
+        }
+
+        .bigger {
+            width: 96%;
+        }
+
+        .signup {
+            background-color: #32b864;
+            color: #ffffff;
+        }
+
+        .login {
+            background-color: #585858;
+            color: #c4c4c4;
+        }
+
+        input {
+            border: 1px solid #c4c4c4;
+            color: #c4c4c4;
+            background-color: #011116;
+        }
+
+        ::-webkit-input-placeholder::after { /* Chrome/Opera/Safari */
+            content: '*';
+            color: #32b864;
+        }
+        ::-moz-placeholder::after  { /* Firefox 19+ */
+            content: '*';
+            color: #32b864;
+        }
+        :-ms-input-placeholder::after  { /* IE 10+ */
+            content: '*';
+            color: #32b864;
+        }
+        :-moz-placeholder::after  { /* Firefox 18- */
+            content: '*';
+            color: #32b864;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="" method="get">
+            <table>
+                <tr>
+                    <td>
+                        <div class="button signup">Sign Up</div>
+                    </td>
+                    <td>
+                        <div class="button login">Log In</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h2 style="color: white;">Sign Up for Free</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="firstname" class="require" placeholder="First Name" required />
+                    </td>
+                    <td>
+                        <input type="text" name="lastname" class="require" placeholder="Last Name" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="email" name="email" class="require bigger" placeholder="Email Address" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input
+                                type="password"
+                                name="password"
+                                class="require bigger"
+                                placeholder="Set A Password"
+                                required
+                        />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input
+                                type="submit"
+                                class="button"
+                                name="send"
+                                value="GET STARTED"
+                                style=" width: 99%;
+                                        outline:none;
+                                        border:0px solid black;
+                                        background-color: #32b864;
+                                        color: white;
+                                        font-size: 1.3em;"
+                        />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 0.9em;
+    font-family: Arial;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-bar > ul, .web-footer > div > ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-bar > ul > li, .web-footer > div > ul > li {
+    display: inline-block;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
+
+/* Header */
+.web-header {
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #603f1f;
+    position: sticky;
+    top: 0;
+}
+
+.active {
+    background-color: #c1803e;
+}
+
+/* Footer */
+.web-footer {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    background-color: #27190c;
+    align-items: center;
+    margin: 100px auto 0;
+}
+
+/* Terms */
+.license {
+    margin: 80px auto;
+    width: 40%;
+    display: block;
+    line-height: 20px;
+}
+
+.terms-head {
+    font-size: 3em;
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* Contact */
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+
+input {
+    padding: 10px;
+    width: 300px;
+    border-radius: 10px;
+    border: 1px solid black;
+    outline: none;
+    font-size: 1.2em;
+}
+
+input:focus {
+    background-color: #c1803e;
+    color: #ffffff;
+}
+
+label {
+    margin-right: 80px;
+    font-size: 1.2em;
+}
+
+label::after {
+    content: ' : ';
+}
+
+.contact-logo {
+    width: 100%;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.send {
+    background-color: #603f1f;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.send:hover {
+    background-color: #c1803e;
+}
+
+.main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.about-book {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    width: 60%;
+}
+
+.left-about {
+    display: inline-block;
+    width: 50%;
+    padding: 20px 0;
+    margin-right: 30px;
+}
+
+.left-about > h2, .left-about > h4, .right-about > h4{
+    margin: 10px 0;
+}
+
+.right-about {
+    display: inline-block;
+    width: 50%;
+    padding: 20px 0;
+}
+
+.right-about > ul {
+    display: block;
+    list-style-type: circle;
+    padding: 20px;
+    list-style-position: inside;
+}
+
+.right-about > ul > li {
+    color: #000000;
+    display: block;
+    padding: 10px;
+}
+
+.right-about > ul > li::before {
+    content: '-  ';
+}

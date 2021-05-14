@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Church membership form</title>
+    <style>
+        * {
+            color: #454545;
+        }
+
+        .container {
+            padding: 20px;
+            width: 40%;
+            font-family: Arial;
+            margin: 0 auto;
+        }
+
+        .header {
+            border-bottom: 1px solid #585858;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        input {
+            outline: none;
+            border: 1px solid #585858;
+            border-radius: 2px;
+            padding: 5px;
+        }
+
+        input[type="text"] {
+            width: 200px;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        .message {
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .smallmessage {
+            font-size: 0.6em;
+            color: #a4a4a4;
+            width: 150px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        label {
+            font-size: 0.8em;
+            display: block;
+            width: 100px;
+        }
+
+        .require::after {
+            content: '*';
+            color: red;
+        }
+
+        input[type="submit"]
+        {
+            display: block;
+            margin: 3px auto;
+            background-color: #343434;
+            color: #eee1cc;
+            padding: 10px 30px;
+            border-radius: 2px;
+        }
+
+        select {
+            width: 212px;
+            padding: 5px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Church Membership Form</h1>
+            <p>
+                Please fill in our church membership form below with your information to become a member of our Church.
+            </p>
+            <p>
+                This church membership form can be completed only by adults. If you're less than 18, provide the email
+                address of a parent.
+            </p>
+        </div>
+        <div class="content">
+            <form action="" method="get">
+                <table>
+                    <tr> <!-- Name -->
+                        <td>
+                            <label for="firstname" class="require">Name</label>
+                        </td>
+                        <td colspan="2">
+                            <input type="text" id="firstname" name="firstname" placeholder="First" required />
+                        </td>
+                        <td colspan="2">
+                            <input type="text" id="lastname" name="lastname" placeholder="Last" required />
+                        </td>
+                    </tr>
+                    <tr> <!-- Gender and Age -->
+                        <td>
+                            <label>Gender</label>
+                        </td>
+                        <td colspan="2">
+                            <input type="radio" id="male" name="gender" />
+                            <label for="male" style="display:inline;">Male</label>
+                            <input type="radio" id="female" name="gender" />
+                            <label for="female" style="display:inline;">Female</label>
+                        </td>
+                        <td colspan="1">
+                            <label for="age" class="require" style="width: 30px; margin-right: -50px;">Age</label>
+                        </td>
+                        <td colspan="1">
+                            <input type="number" style="width: 30px;" id="age" name="age" required />
+                        </td>
+                    </tr>
+                    <tr> <!-- Email address -->
+                        <td style="vertical-align: top;">
+                            <label for="email" class="require">Email</label>
+                        </td>
+                        <td colspan="2">
+                            <input style="width: 200px" type="email" id="email" name="email" required /><br />
+                            <span class="smallmessage">
+                                If you're less than 18, provide the email address of a parent.
+                            </span>
+                        </td>
+                    </tr>
+                    <tr> <!-- Phone -->
+                        <td>
+                            <label for="phone">Phone</label>
+                        </td>
+                        <td colspan="4">
+                            <input type="text" id="phone" name="phone" placeholder="### ### ####" />
+                        </td>
+                    </tr>
+                    <tr><!-- Address -->
+                        <td rowspan="3" style="vertical-align: top;">
+                            <label for="street" class="require">Address</label>
+                        </td>
+                        <td colspan="4">
+                            <input
+                                    style="width: 436px"
+                                    type="text"
+                                    id="street"
+                                    name="street"
+                                    placeholder="Street Address"
+                                    required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="text" name="city" placeholder="City" required />
+                        </td>
+                        <td colspan="2">
+                            <input type="text" name="state" placeholder="State" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input
+                                    style="width: 200px"
+                                    type="number"
+                                    name="postal"
+                                    placeholder="Postal / Zip Code"
+                                    required
+                            />
+                        </td>
+                        <td colspan="2">
+                            <select name="country" required >
+                                <option value="1">Country</option>
+                                <option value="2">My Country</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <span class="message">
+                                If you have been a member of a another church,
+                                please fill in the information below.
+                            </span>
+                        </td>
+                    </tr>
+                    <tr><!-- Church name -->
+                        <td>
+                            <label for="church">Church Name</label>
+                        </td>
+                        <td colspan="4">
+                            <input style="width: 436px" type="text" id="church" name="church" /><br />
+                        </td>
+                    </tr>
+                    <tr><!-- Church address -->
+                        <td rowspan="3" style="vertical-align: top;">
+                            <label for="ch-street" class="require">Church Address</label>
+                        </td>
+                        <td colspan="4">
+                            <input
+                                    style="width: 436px"
+                                    type="text"
+                                    id="ch-street"
+                                    name="ch-street"
+                                    placeholder="Street Address"
+                                    required
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="text" name="ch-city" placeholder="City" required />
+                        </td>
+                        <td colspan="2">
+                            <input type="text" name="ch-state" placeholder="State" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input
+                                    style="width: 200px"
+                                    type="number"
+                                    name="ch-postal"
+                                    placeholder="Postal / Zip Code"
+                                    required
+                            />
+                        </td>
+                        <td colspan="2">
+                            <select name="ch-country" required >
+                                <option value="1">Country</option>
+                                <option value="2">My Country</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr><!-- Pastor's name -->
+                        <td>
+                            <label for="pastor">Pastor's Name</label>
+                        </td>
+                        <td colspan="4">
+                            <input type="text" id="pastor" name="pastor" />
+                        </td>
+                    </tr>
+                    <tr><!-- Submit -->
+                        <td colspan="5">
+                            <input type="submit" name="send" value="SEND" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
