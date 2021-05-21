@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .container {
+                width: 90%;
+                margin: 10px auto;
+            }
+
+            .topper, .content {
+                width: 60%;
+                border-bottom: 2px solid black;
+            }
+
+            .lower {
+                width: 60%;
+                text-align: right;
+            }
+
+            .content-left, .content-right {
+                display: inline-block;
+                min-height: 200px;
+                vertical-align: text-top;
+                margin-bottom: 30px;
+            }
+
+            .content-left {
+                width: 20%;
+            }
+
+            .content-right {
+                width: 40%;
+                margin-left: 10px;
+            }
+
+            .line {
+                display: block;
+                clear: both;
+                margin-top: 10px;
+            }
+
+            th {
+                text-align: left;
+            }
+
+            td, th {
+                border: 1px black dotted;
+                padding: 2px 5px;
+            }
+
+            table {
+                border: 1px solid black;
+                border-radius: 3px;
+                border-collapse: collapse;
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            li {
+                margin-top: 5px;
+            }
+
+            h2, h3 {
+                color: orange;
+            }
+
+            a:visited {
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="topper">
+                <h1>Product Manager</h1>
+            </div>
+            <div class="content">
+                <div class="content-head">
+                    <h2>Product List</h2>
+                </div>
+                <div>
+                    <div class="content-left">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li>
+                                <a href="">Guitars</a>                   
+                            <li>
+                                <a href="">Basses</a>
+                            </li>
+                            <li>
+                                <a href="">Drums</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content-right">
+                        <h3>Basses</h3>
+                        <table>
+                            <tr>
+                                <th>Code</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>precision</td>
+                                <td>Fender Precision</td>
+                                <td>799.99</td>
+                                <td><button>Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>hofner</td>
+                                <td>Hofner icon</td>
+                                <td>499.99</td>
+                                <td><button>Delete</button></td>
+                            </tr>
+                        </table>
+                        <a href="" class="line">Add Product</a>
+                        <a href="" class="line">List Categories</a>
+                    </div>
+                </div>
+            </div>
+            <div class="lower">
+                <p>@ 2015 My Guitar Shop, inc.</p>
+            </div>
+        </div>
+    </body>
+</html>

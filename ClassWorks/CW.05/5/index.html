@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            .container {
+                width: 50%;
+                margin: 2px auto;
+                display: flex;
+                justify-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .topper {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+
+            .right-part {
+                display: inline-block;
+                width: 49%;
+            }
+
+            .left-part {
+                display: inline-block;
+                width: 49%;
+            }
+
+            .lower {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .row {
+                margin: 10px 0;
+            }
+
+            input:not([type='submit']) {
+                border: 0px solid black;
+                border-bottom: 1px solid black;
+                outline: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="topper">
+                <div>
+                    <div class="right-part">
+                        image
+                    </div>
+                    <div class="left-part">
+                        <div class="row">
+                            <h2>
+                                Create Account
+                            </h2>
+                        </div>
+                        <div class="row">
+                            <input type="text" />
+                        </div>
+                        <div class="row">
+                            <input type="email" />
+                        </div>
+                        <div class="row">
+                            <input type="text" />
+                        </div>
+                        <div class="row">
+                            <input type="password" />
+                        </div>
+                        <div class="row">
+                            <input type="password" />
+                        </div>
+                        <div class="row">
+                            <input type="submit" />
+                            <input type="submit" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lower">
+                <p>
+                    Some text
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

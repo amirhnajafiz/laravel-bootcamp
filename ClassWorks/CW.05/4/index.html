@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            .container {
+                display: flex;
+                width: 60%;
+                margin: 5px auto;
+                border: 4px solid rgb(38, 8, 78);
+                padding: 10px 20px;
+                border-radius: 10px;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .header {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .content {
+                display: flex;
+                width: 100%;
+                flex-direction: row;
+            }
+
+            .right-content {
+                width: 50%;
+                padding: 10px;
+            }
+
+            .left-content {
+                width: 50%;
+                padding: 10px;
+            }
+
+            .row {
+                display: block;
+                width: 100%;
+                margin: 7px 0;
+            }
+
+            .info-list {
+                list-style-type: none;
+                padding-left: 20px;
+            }
+
+            .info-list > li {
+                margin: 20px 0;
+            }
+
+            .lan-list {
+                list-style: none;
+            }
+
+            .lan-list > li {
+                display: inline-block;
+            }
+
+            .moremargin {
+                margin-top: 30px;
+            }
+
+            .holder {
+                background-color: rgb(38, 8, 78);
+                padding: 10px 20px;
+                border-radius: 5px;
+                color: #ffffff;
+            }
+
+            input {
+                width: 70%;
+                padding: 3px 9px;
+                border-radius: 3px;
+                outline: none;
+                border: 1px solid black;
+            }
+
+            textarea {
+                resize: none;
+                height: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+
+            <div class="header">
+                <h1 style="display: inline;">
+                    CONTACT
+                </h1>
+                <button style="float: right;">C</button>
+            </div>
+
+            <div class="content">
+
+                <div class="right-content">
+                    <div class="row">
+                        <h3>Hire/Inquiry</h3>
+                    </div>
+                    <div class="row">
+                        <p>
+                            Leorem ipsum color sit amet conscetetur adipsiscing elit. Irue, quia?
+                        </p>
+                    </div>
+                    <div class="row moremargin">
+                        <ul class="info-list">
+                            <li>
+                                ICON: +123456789
+                            </li>
+                            <li>
+                                ICON: webcifar@gmail.com
+                            </li>
+                            <li>
+                                ICON: chittagong, Bangladesh
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row moremargin">
+                        <ul class="lan-list">
+                            <li class="lan-item">FB</li>
+                            <li class="lan-item">TW</li>
+                            <li>IG</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="right-content">
+
+                    <div class="holder">
+                        <form action="" method="post">
+                            <div class="row">
+                                <label>Your Name</label>
+                                <div>
+                                    ICON: <input type="text" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label>Your Email</label>
+                                <div>
+                                    ICON: <input type="email" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label>Message</label>
+                                <textarea></textarea>
+                            </div>
+                            <div class="row">
+                                <input type="submit" value="SEND" />
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+</html>
