@@ -31,6 +31,7 @@
                 display: flex;
                 width: 100%;
                 flex-direction: row;
+                flex-wrap: wrap;
             }
 
             .right-content {
@@ -88,6 +89,28 @@
             textarea {
                 resize: none;
                 height: 200px;
+                width: 85%;
+                border-radius: 5px;
+                padding: 5px;
+                margin-top: 5px;
+                outline: none;
+            }
+
+            .menu-btn {
+                background-color: rgb(38, 8, 78);
+                color: white;
+                width: 25px;
+                height: 25px;
+                border-radius: 5px;
+                outline: none;
+                border: 1px solid black;
+            }
+
+            .submit-btn {
+                width: 40%;
+                border-radius: 10px;
+                margin-top: 3px;
+                padding: 10px 0;
             }
         </style>
     </head>
@@ -98,7 +121,7 @@
                 <h1 style="display: inline;">
                     CONTACT
                 </h1>
-                <button style="float: right;">C</button>
+                <button class="menu-btn" style="float: right;"></button>
             </div>
 
             <div class="content">
@@ -152,10 +175,12 @@
                             </div>
                             <div class="row">
                                 <label>Message</label>
-                                <textarea></textarea>
+                                <div>
+                                    <textarea></textarea>
+                                </div>
                             </div>
                             <div class="row">
-                                <input type="submit" value="SEND" />
+                                <input class="submit-btn" type="submit" value="SEND" />
                             </div>
                         </form>
                     </div>
