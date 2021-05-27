@@ -13,7 +13,7 @@
 
         $carry = 0; // In case of overloading
 
-        while ($first_index > -1 || $second_index > -1)
+        while ($first_index > -2 || $second_index > -2)
         {
 
             $temp_1 = $first_index < 0 ? 0 : (int) $first_queue[$first_index];
@@ -29,7 +29,7 @@
             $second_index--;
         }
 
-        return $result;
+        return ltrim($result, "0");
     }
 ?>
 
