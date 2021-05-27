@@ -43,6 +43,9 @@
 			$second_string = $temp;
 			$flag = TRUE;
 		}
+	    
+	    	if ($compare_result == 0)
+			return "0";
 		
         $result = ""; // Saving the final result in a function
 
