@@ -8,7 +8,7 @@
 		
 		foreach($replacements[0] as $replacement)
 		{
-			$input_string = str_replace("$replacement", "<a href='www.instagram.com'>" . $replacement . "</a>", $input_string);
+			$input_string = str_replace("$replacement", "<a href='www.instagram.com'>" . substr($replacement, 1, strlen($replacement)) . "</a>", $input_string);
 		}
 		
 		return $input_string;
