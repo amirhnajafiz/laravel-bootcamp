@@ -173,6 +173,6 @@
 ?>
 
 <?php
-	$test1 = "25";
+    $test1 = "25";
     echo factoriel($test1);
 ?>
