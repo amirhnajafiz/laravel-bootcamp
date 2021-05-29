@@ -17,6 +17,9 @@
 
         <?php
             $form_errors = array();
+            $form_errors['name'] = array();
+            $form_errors['number'] = array();
+            $form_errors['mail'] = array();
             $request_message = "";
             $store_name = "";
             $store_mail = "";
@@ -99,6 +102,14 @@
                 return $data;
             }
 
+            function save_to_file()
+            {
+                global $store_mail, $store_name, $store_numb, $store_mesg;
+                $fp = fopen($store_mail, 'w');
+                fwrite($fp, "Phone:" . $store_numb . "|Name:" . $store_name . "|Comment:" . $store_mesg);
+                fclose($fp);
+            }
+
             function request_send()
             {
                 global $request_message;
@@ -107,10 +118,12 @@
                     return;
 
                 $validate = validate_request();
-                $request_message = $validate ? "Your request was sent successfully." : "Something is wrong in your informations, please fix them.";
+                $request_message = $validate ? "Your request was sent successfully." : "Something is wrong in your informations, please fix the issus.";
+                if ($validate)
+                    save_to_file();
             }
 
-            if(isset($_GET))
+            if(count($_GET) > 0)
                 request_send();
         ?>
 
@@ -123,7 +136,7 @@
                 <form action="" method="GET">
                     <div class="content-body">
                         <div class="row">
-                            <div class="card third-width">
+                            <div class="card third-width left-float">
                                 <label for="full-name">FULL NAME</label>
                                 <input type="text" name="fullname" id="full-name" minlength="6" pattern="[A-Za-z]*" value="<?php echo $store_name; ?>" required />
                                 <?php echo get_errors("name"); ?>
@@ -133,14 +146,15 @@
                                 <input type="text" name="phone" id="phone" minlength="11" value="<?php echo $store_numb; ?>" required />
                                 <?php echo get_errors("number"); ?>
                             </div>
-                            <div class="card third-width">
+                            <div class="card third-width right-float">
                                 <label for="email">EMAIL</label>
                                 <input type="email" name="mail" id="email" value="<?php echo $store_mail; ?>" required />
                                 <?php echo get_errors("mail"); ?>
                             </div>
+                            <div class="clearfix"></div>
                         </div>
                         <div class="row">
-                            <div class="card half-width">
+                            <div class="card half-width left-float">
                                 <label>LEOREM IPSUM</label>
                                 <select name="leorem-ipsum">
                                     <option value="" disabled selected>Please select</option>
@@ -148,7 +162,7 @@
                                     <option value="ipsum">IPSUM</option>
                                 </select>
                             </div>
-                            <div class="card half-width">
+                            <div class="card half-width right-float">
                                 <label>IPSUM LEOREM</label>
                                 <select name="ipsum-leorem">
                                     <option value="" disabled selected>Please select</option>
@@ -156,14 +170,16 @@
                                     <option value="leorem">LEOREM</option>
                                 </select>
                             </div>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="row">
+                        <div class="row mr-top-100">
                             <div class="card full-width">
                                 <label for="message">MESSAGE</label>
                                 <textarea id="message" name="message" placeholder="Nam porttitor blandit accumsan">
                                     <?php echo $store_mesg; ?>
                                 </textarea>
                             </div>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                     <div class="footer">
