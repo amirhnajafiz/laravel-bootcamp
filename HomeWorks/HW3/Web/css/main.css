@@ -40,10 +40,6 @@ fieldset {
     padding: 0;
 }
 
-textarea {
-    resize: vertical;
-}
-
 .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
@@ -55,9 +51,72 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+.container {
+    width: 100%;
+}
 
+.content {
+    margin: 10px auto;
+    width: 60%;
+}
 
+.header {
+    width: 100%;
+    text-align: center;
+}
 
+.content-body {
+    width: 100%;
+    border: 1px solid black;
+    text-align: center;
+    padding: 30px 50px;
+}
+
+.row {
+    display: block;
+    width: 90%;
+    margin: 10px 10px;
+}
+
+.card {
+    display: inline-block;
+    text-align: left;
+}
+
+.card > label {
+    display: block;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer > span {
+    display: block;
+}
+
+.half-width {
+    width: 49%;
+}
+
+.third-width {
+    width: 33%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+}
+
+input:not([type='submit']), select {
+    width: 100%;
+}
 
 
 
