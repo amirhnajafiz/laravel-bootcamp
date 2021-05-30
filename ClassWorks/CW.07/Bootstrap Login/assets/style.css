@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+}
+
+.logo-holder {
+    margin-bottom: 20px;
+}
+
+.logo-holder > img {
+    width: 60px;
+}
+
+.logo-holder > div {
+    width: 100%;
+    text-align: center;
+}
+
+.one-line {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+}
+
+.special-line {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.wrapper {
+    width: 20%;
+    text-align: center;
+}

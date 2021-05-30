@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap Login</title>
+        <meta charset="UTF-8" />
+        <link href="assets/style.css" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="logo-holder row">
+                <img src="assets/logo.png" />
+                <div>
+                    Please login
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="one-line">
+                    <div class="wrapper">
+                        <input class="form-control" type="email" placeholder="Please enter your Email" /> 
+                    </div>
+                </div>
+                <div class="one-line">
+                    <div class="wrapper">
+                        <input class="form-control" type="password" placeholder="Password" />
+                    </div>
+                </div>
+                <div class="one-line special-line mt-2">
+                    <span>
+                        <input type="checkbox" id="RM" class="form-check-input" name="remindme" />
+                    </span>
+                    <label for="RM" class="form-check-label">Remind Me</label>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" class="btn btn-primary" value="Login" />
+            </div>
+        </div>
+    </body>
+</html>
