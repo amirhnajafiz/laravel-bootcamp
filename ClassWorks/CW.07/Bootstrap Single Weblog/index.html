@@ -7,18 +7,62 @@
         <meta name="description" content="Create a weblog with Bootstrap4">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <style>
+            .list-group-item {
+                border: 0px solid black !important;
+            }
+        </style>
     </head>
     <body>
+        <div class="container">
+            <div role="navigation" class="navbar navbar-expand-lg navbar border-bottom">
+                <div class="nav-item col-md-2">
+                    Subscribe
+                </div>
+                <div class="nav-item col-md-8">
+                    <div class="d-flex justify-content-center">
+                        <h2>Large</h2>
+                    </div>
+                </div>
+                <div class="nav-item col-md-2">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <button type="button" class="btn btn-secondary">Sign Up</button> 
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <ul class="row list-group list-group-horizontal list-group-flush d-flex flex-row justify-content-between flex-wrap">
+                    <li class="list-group-item">World</li>
+                    <li class="list-group-item">U.S.</li>
+                    <li class="list-group-item">Technology</li>
+                    <li class="list-group-item">Design</li>
+                    <li class="list-group-item">Culture</li>
+                    <li class="list-group-item">Business</li>
+                    <li class="list-group-item">Politics</li>
+                    <li class="list-group-item">Opinions</li>
+                    <li class="list-group-item">Science</li>
+                    <li class="list-group-item">Health</li>
+                    <li class="list-group-item">Style</li>
+                    <li class="list-group-item">Travel</li>
+                </ul>
+            </div>
+            <div class="container-fluid bg-dark text-white" style="padding: 60px 50px;">
+                <h1 class="font-italic">Title of a longer <br />featured blog post</h1>
+                <p>
+                    Multiple lines of text that form the led,informing new<br/>
+                    readers quickly and efficiently about what's most<br />
+                    interesting in this posts contents.
+                </p>
+                <div>
+                    <b>Continue reading...</b>
+                </div>
+            </div>
+        </div>
 
-
-
-        
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
