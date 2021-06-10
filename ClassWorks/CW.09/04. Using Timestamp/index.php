@@ -1,30 +1,36 @@
 <?php
 
-  $now = new DateTime("2020/06/10 05:00");
+	function convert($date)
+	{
+		$timestamp = strtotime($date);
+		$diff = 226898;
+		if (date('L', $timestamp)) $diff += 1;
+		return $timestamp - ($diff * 24 * 3600) + (4.50 * 3600);
+	}
 
-  $formatter = new IntlDateFormatter(
-                  "fa_IR@calendar=persian",
-                  IntlDateFormatter::FULL,
-                  IntlDateFormatter::FULL,
-                  'Asia/Tehran',
-                  IntlDateFormatter::TRADITIONAL,
-                  "yyyy/MM/dd h:m");
+	$date = date('Y/m/d D H:i', strtotime("2020/06/10"));
 
-  echo 'It is now: ' . $now->format("Y/m/d D H:i") ."\n";
+	echo $date . "\n";
 
-  $convert = new DateTime(convert_to_number($formatter->format($now)));
+	$convert_date = date("Y/m/d D H:i", convert($date));
 
-  echo 'It is now: ' . $convert->format("Y/m/d D H:i") ."\n";
+	echo convert_to_number(convert_to_persian_days($convert_date)) . "\n";
 
-  function convert_to_number($string) {
-    $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-    $arabic = ['٩', '٨', '٧', '٦', '٥', '٤', '٣', '٢', '١','٠'];
+	function convert_to_persian_days($string) {
+    $english = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    $persian = ['Doshanbeh', 'Seshanbeh', 'Chaharshanbeh', 'Panjshanbeh', 'Jomeh', 'Shanbeh', 'Yekshanbeh'];
 
-    $num = range(0, 9);
-    $convertedPersianNums = str_replace($persian, $num, $string);
-    $englishNumbersOnly = str_replace($arabic, $num, $convertedPersianNums);
+    $persianformatonly = str_replace($english, $persian, $string);
 
-    return $englishNumbersOnly;
+    return $persianformatonly;
   }
 
+	function convert_to_number($string) {
+    $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+
+    $num = range(0, 9);
+    $convertedPersianNums = str_replace($num, $persian, $string);
+
+    return $convertedPersianNums;
+  }
 ?>
