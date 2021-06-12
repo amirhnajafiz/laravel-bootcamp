@@ -26,11 +26,29 @@
         .border-bottom-3 {
             border-bottom: 2px solid rgb(179, 179, 179);
         }
+
+        .white-style {
+            background-color: #ffffff;
+            color: blue;
+        }
+
+        .blue-style {
+            background-color: blue;
+            color: #ffffff;
+        }
+
+        .blue-border {
+            border: 1px solid blue;
+        }
+
+        .w-30 {
+            width: 32%;
+        }
     </style>
 </head>
 
 <body>
-    <div style="width: 70%; margin: 0px auto;">
+    <div style="width: 60%; margin: 0px auto;">
         <div class="d-flex pt-3 pb-3 border-bottom">
             <!-- Navigation -->
             <div class="flex-fill">
@@ -60,7 +78,7 @@
         <div class="mb-5">
             <!-- Content -->
             <div class="d-flex justify-content-center">
-                <div class="text-center mt-3 mb-2 w-50">
+                <div class="text-center mt-3 mb-2 w-75">
                     <!-- Top header -->
                     <h1>
                         Pricing
@@ -72,9 +90,9 @@
                     </p>
                 </div>
             </div>
-            <div class="row m-0">
+            <div class="m-0 d-flex justify-content-between">
                 <!-- Three cards -->
-                <div class="col-4 border p-0 pb-3">
+                <div class="w-30 border p-0 pb-3 card">
                     <!-- Single card -->
                     <div class="text-center bg-light border-bottom pt-2" style="height:50px; font-size: 18px;">
                         <!-- Card head -->
@@ -91,12 +109,12 @@
                             <li class="list-group-item border-0 p-0">Email Support</li>
                             <li class="list-group-item border-0 p-0">Help center access</li>
                         </ul>
-                        <button type="button" class="btn btn-primary btn-lg btn-block w-75 mx-auto">
+                        <button type="button" class="btn btn-primary btn-lg btn-block w-75 mx-auto white-style">
                             Sign up for free
                         </button>
                     </div>
                 </div>
-                <div class="col-4 border p-0 pb-3">
+                <div class="w-30 border p-0 pb-3 card">
                     <!-- Single card -->
                     <div class="text-center bg-light border-bottom pt-2" style="height:50px; font-size: 18px;">
                         <!-- Card head -->
@@ -113,14 +131,14 @@
                             <li class="list-group-item border-0 p-0">Priority email Support</li>
                             <li class="list-group-item border-0 p-0">Help center access</li>
                         </ul>
-                        <button type="button" class="btn btn-primary btn-lg btn-block w-75 mx-auto">
+                        <button type="button" class="btn btn-primary btn-lg btn-block w-75 mx-auto blue-style">
                             Get started
                         </button>
                     </div>
                 </div>
-                <div class="col-4 border p-0 pb-3">
+                <div class="w-30 border p-0 pb-3 card">
                     <!-- Single card -->
-                    <div class="text-center bg-light border-bottom pt-2" style="height:50px; font-size: 18px;">
+                    <div class="text-center border-bottom pt-2 blue-style" style="height:50px; font-size: 18px;">
                         <!-- Card head -->
                         Enterprise
                     </div>
@@ -135,7 +153,7 @@
                             <li class="list-group-item border-0 p-0">Phone and email Support</li>
                             <li class="list-group-item border-0 p-0">Help center access</li>
                         </ul>
-                        <button type="button" class="btn btn-primary btn-lg btn-block w-75 mx-auto">
+                        <button type="button" class="btn btn-primary btn-lg btn-block w-75 mx-auto blue-style">
                             Contact us
                         </button>
                     </div>
@@ -218,17 +236,17 @@
             </div>
         </div>
 
-        <div class="row m-0 border-top mt-5">
+        <div class="row m-0 border-top mt-5 pt-5 mb-5">
             <!-- Footer -->
-            <div>
+            <div class="col-3">
                 <img src="./img/logo.png" alt="bootstrap logo" id="web-brand" width="35" />
-                <div>@2017-2021</div>
+                <div>©2017-2021</div>
             </div>
-            <div>
-                <h2>
+            <div class="col-3">
+                <h3>
                     Features
-                </h2>
-                <ul>
+                </h3>
+                <ul class="list-group" style="list-style-type: none;">
                     <li>Cool stuff</li>
                     <li>Random feature</li>
                     <li>Team feature</li>
@@ -237,22 +255,22 @@
                     <li>Last time</li>
                 </ul>
             </div>
-            <div>
-                <h2>
+            <div class="col-3">
+                <h3>
                     Resourses
-                </h2>
-                <ul>
+                </h3>
+                <ul class="list-group" style="list-style-type: none;">
                     <li>Resourse</li>
                     <li>Resourse name</li>
                     <li>Another reasourse</li>
                     <li>Final reasourse</li>
                 </ul>
             </div>
-            <div>
-                <h2>
+            <div class="col-3">
+                <h3>
                     About
-                </h2>
-                <ul>
+                </h3>
+                <ul class="list-group" style="list-style-type: none;">
                     <li>Team</li>
                     <li>Location</li>
                     <li>Privacy</li>
