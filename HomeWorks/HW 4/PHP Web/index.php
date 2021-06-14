@@ -147,13 +147,16 @@
                 fwrite($myfile, $filedata);
                 fclose($myfile);
 
-                $database = file_get_contents('./database.html');
+                $database = file_get_contents('./database.txt');
                 $target = "</ul>";
-                $myfile = fopen('database.html', "w");
-                $userlink = "<li><a href='./Users/" . $_GET['mail'] . ".html" ."'>" . $_GET['firstname'] . " " . $_GET['lastname'] . "</a></li></ul>";
-                $database = str_replace($target, $userlink, $database);
-                fwrite($myfile, $database);
-                fclose($myfile);
+                if (strpos($database, $_GET['firstname'] . " " . $_GET['lastname']) != -1)
+                {
+                    $myfile = fopen('./database.txt', "w");
+                    $userlink = "<li class='list-group-item list-group-item-action'><a href='./Users/" . $_GET['mail'] . ".html" ."'>" . $_GET['firstname'] . " " . $_GET['lastname'] . "</a></li>\n</ul>";
+                    $database = str_replace($target, $userlink, $database);
+                    fwrite($myfile, $database);
+                    fclose($myfile);
+                }
             }
 
             if(count($_GET) > 0)
