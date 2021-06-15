@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -30,7 +29,9 @@
             $database = array_diff(scandir("./Users"), array('.', '..'));
             echo "<ul class='list-group list-group-flush'>";
             foreach($database as $data) {
-                echo "<li class='list-group-item list-group-item-action'><a href='./Users/" . $data . "'>" . substr($data, 0, strlen($data) - 5) . "</a></li>";
+                echo "<li class='list-group-item list-group-item-action'><a href='./Users/" . $data . "'>" . substr($data, 0, strlen($data) - 5) . "</a>";
+                echo "<button type='button' class='btn btn-danger' onclick='remove(\"" . "./Users/" . $data . "\")'>Remove</button>";
+                echo "</li>";
             }
             echo "</ul>";
         ?>
@@ -38,6 +39,18 @@
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
+        function remove(parameter) {
+            $.ajax({
+                type: "POST",
+                url: "requestHandler.php",
+                data: { filename: parameter, action : 'removeFile' }
+            }).done(function() {
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
+                alert( "File deleted: " + parameter );
+            });
+        }
         (function (b, o, i, l, e, r) {
             b.GoogleAnalyticsObject = l; b[l] || (b[l] =
                 function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
