@@ -30,14 +30,13 @@
             echo "<ul class='list-group list-group-flush'>";
             foreach($database as $data) {
                 echo "<li class='list-group-item list-group-item-action'><a href='./Users/" . $data . "'>" . substr($data, 0, strlen($data) - 5) . "</a>";
-                echo "<button type='button' class='btn btn-danger' onclick='remove(\"" . "./Users/" . $data . "\")'>Remove</button>";
+                echo "<button type='button' class='btn btn-danger float-right' onclick='remove(\"" . "./Users/" . $data . "\")'>Remove</button>";
                 echo "</li>";
             }
             echo "</ul>";
         ?>
         <a href="./index.php" class="btn btn-secondary mt-4">Back</a>
     </div>
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
         function remove(parameter) {
             $.ajax({
@@ -61,5 +60,4 @@
         ga('create', 'UA-XXXXX-X', 'auto'); ga('send', 'pageview');
     </script>
 </body>
-
 </html>
