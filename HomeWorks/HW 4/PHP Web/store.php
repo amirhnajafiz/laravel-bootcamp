@@ -26,7 +26,15 @@
 <body>
     <div class="container w-75 m-auto mt-5 pt-5">
         <h2>List of users requested: </h2>
-        <?php readfile("./database.txt"); ?>
+        <?php 
+            $database = array_diff(scandir("./Users"), array('.', '..'));
+            echo "<ul class='list-group list-group-flush'>";
+            foreach($database as $data) {
+                echo "<li class='list-group-item list-group-item-action'><a href='./Users/" . $data . "'>" . substr($data, 0, strlen($data) - 5) . "</a></li>";
+            }
+            echo "</ul>";
+        ?>
+        <a href="./index.php" class="btn btn-secondary mt-4">Back</a>
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
