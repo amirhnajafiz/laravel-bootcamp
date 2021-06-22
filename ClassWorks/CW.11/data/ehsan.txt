@@ -1,1 +1,0 @@
-{"ali":[{"message":"salam","time":1624006682,"sender":true},{"message":"manam salam","time":1624006701,"sender":false},{"message":"khobi?","time":1624006976,"sender":false}],"reza":[]}

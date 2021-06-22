@@ -1,4 +1,0 @@
-a:2:{s:8:"username";s:8:"mohammad";s:8:"password";s:32:"81dc9bdb52d04dc20036dbd8313ed055";}
-a:2:{s:8:"username";s:4:"reza";s:8:"password";s:32:"81dc9bdb52d04dc20036dbd8313ed055";}
-a:2:{s:8:"username";s:3:"ali";s:8:"password";s:32:"81dc9bdb52d04dc20036dbd8313ed055";}
-a:2:{s:8:"username";s:5:"ehsan";s:8:"password";s:32:"81dc9bdb52d04dc20036dbd8313ed055";}
