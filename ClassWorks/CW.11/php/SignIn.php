@@ -7,12 +7,9 @@
     if ($_GET['rememberme'] == 'on')
       setcookie('username', $_GET['username'], ['path' => '/Maktab/Chat']);
     
-    if (!isOnline($_GET['username']))
-    {
-      setUserOnline($_GET['username']);
-      header("Location: ../MyChatRoom.php?user={$_GET['username']}");
-      exit();
-    }
+    setUserOnline($_GET['username']);
+    header("Location: ../MyChatRoom.php?user={$_GET['username']}");
+    exit();
   }
 
   header('Location: ../SignIn.php?status=notfound');
