@@ -1,7 +1,6 @@
 <?php
   require 'php/GetContacts.php';
   require 'php/GetMessages.php';
-  require 'php/jdf.php';
 ?>
 
 <!doctype html>
@@ -30,6 +29,7 @@
 
                       <!-- A form for adding a new contact -->
                       <form class="d-flex justify-content-start" action="php/AddContact.php" method="post">
+                        <a href="php/Logout.php" class="d-inline-block btn btn-danger" style="margin-right:5px;">Logout</a>
                         <input type="submit" class="btn btn-outline-light me-2" name="" value="add" />
                         <input type="hidden" name="sender" value="<?php echo $_GET['user']; ?>" />
                         <input type="text" class="form-control" name="username" placeholder="username" required />
@@ -40,7 +40,7 @@
                           <div class="alert alert-danger p-2 mt-2">
                             Username not found
                           </div>
-                        <?php } ?>
+                        <?php exit(); } ?>
                       <?php } ?>
                     </div>
 
@@ -69,8 +69,7 @@
                                 <div class="<?php echo $message['sender'] ? "bg-success" : "bg-warning"; ?> p-2 my-2 rounded">
                                   <?php echo $message['message']; ?>
                                   <div class="text-<?php echo $message['sender'] ? "info" : "secondary"; ?>">
-                                    <?php echo jdate('F j, Y, g:i a', $message['time'], "", 'Asia/Tehran', 'en'); ?>
-
+                                    <?php echo date('l jS F Y h:i:s A', $message['time'])?>
                                   </div>
                                 </div>
                               </div>
