@@ -27,17 +27,22 @@
                 <div class="col-4 h-100">
                   <div class="border-end px-2 h-100 ">
                     <div class="my-2 p-2 border border-light rounded" style="height:3.5rem">
+
+                      <!-- A form for adding a new contact -->
                       <form class="d-flex justify-content-start" action="php/AddContact.php" method="post">
-                        <input type="submit" class="btn btn-outline-light me-2" name="" value="add">
-                        <input type="hidden" name="sender" value="<?php echo $_GET['user']; ?>">
-                        <input type="text" class="form-control" name="username" placeholder="username" required>
+                        <input type="submit" class="btn btn-outline-light me-2" name="" value="add" />
+                        <input type="hidden" name="sender" value="<?php echo $_GET['user']; ?>" />
+                        <input type="text" class="form-control" name="username" placeholder="username" required />
                       </form>
+
                       <?php if ($_GET['error'] == 'fialedtofinduser') { ?>
                         <div class="alert alert-danger p-2 mt-2">
                           Username not found
                         </div>
                       <?php } ?>
+
                     </div>
+
                     <div class="overflow-auto pe-1" style="height: calc(100vh - 5rem)">
                       <h3 class="text-light">Contacts</h3>
                       <?php foreach ($contacts as $contact) { ?>
@@ -48,8 +53,10 @@
                         </a>
                       <?php } ?>
                     </div>
+
                   </div>
                 </div>
+                
                 <div class="col-8">
                   <div class="h-100">
                     <?php if (array_key_exists('chater', $_GET)) { ?>

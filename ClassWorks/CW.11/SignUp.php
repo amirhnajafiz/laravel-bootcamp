@@ -1,7 +1,6 @@
 <?php
- require 'php/CheckUser.php';
- checkUser();
- 
+  require 'php/CheckUser.php';
+  checkUser();
 ?>
 
 <!doctype html>
@@ -24,10 +23,12 @@
           <div class="col-5">
             <div class="border border-primary rounded w-100 text-primary">
               <h2 class="text-center mt-4">Sign Up</h2>
-              <?php if ($_GET['status'] == "invalidusername") { ?>
-                <div class="alert alert-danger p-2 m-3">
-                  Your username is already token :(
-                </div>
+              <?php if (isset($_GET['status'])) { ?>
+                <?php if ($_GET['status'] == "invalidusername") { ?>
+                  <div class="alert alert-danger p-2 m-3">
+                    Your username is already token :(
+                  </div>
+                <?php } ?>
               <?php } ?>
               <form class="" action="php/SignUp.php">
                 <div class="p-3 pt-2">

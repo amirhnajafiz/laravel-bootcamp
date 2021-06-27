@@ -16,24 +16,21 @@
     <body>
 
         <?php
-            $form_errors = array();
-            $form_errors['fname'] = array();
-            $form_errors['lname'] = array();
-            $form_errors['number'] = array();
-            $form_errors['mail'] = array();
-            $request_message = "";
-            $store_fname = "";
-            $store_lname = "";
-            $store_mail = "";
-            $store_numb = "";
-            $store_mesg = "";
+            $store_fname;
+            $store_lname;
+            $store_mail;
+            $store_numb;
+            $store_mesg;
+            $form_errors;
 
             function validate_request()
             {
+                //  Not using Global for parameters
                 global $form_errors, $store_fname, $store_lname, $store_mail, $store_numb, $store_mesg;
 
-                if (!isset($_GET))
-                    return FALSE;
+                //  Not neccessury in function
+                //  if (!isset($_GET))
+                //     return FALSE;
                 
                 $flag = TRUE;
 
@@ -132,7 +129,7 @@
             }
 
             if(count($_GET) > 0)
-                request_send();
+                // request_send();
         ?>
 
         <div class="container">
@@ -145,32 +142,30 @@
                     <div class="content-body">
                         <div class="row">
                             <div class="card half-width left-float">
-                                <input type="text" name="firstname" placeholder="First Name *" minlength="2" pattern="[A-Za-z]*" value="<?php echo $store_fname; ?>" required />
-                                <?php echo get_errors("fname"); ?>
+                                <input type="text" name="firstname" placeholder="First Name *" minlength="2" pattern="[A-Za-z]*" value="<?php // echo $store_fname; ?>" required />
+                                <?php // echo get_errors("fname"); ?>
                             </div>
                             <div class="card half-width right-float">
-                                <input type="text" name="lastname" placeholder="Last Name *" minlength="2" pattern="[A-Za-z]*" value="<?php echo $store_lname; ?>" required />
-                                <?php echo get_errors("lname"); ?>
+                                <input type="text" name="lastname" placeholder="Last Name *" minlength="2" pattern="[A-Za-z]*" value="<?php // echo $store_lname; ?>" required />
+                                <?php // echo get_errors("lname"); ?>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="row">
                             <div class="card half-width left-float">
-                                <input type="email" name="mail" placeholder="Email *" value="<?php echo $store_mail; ?>" required />
-                                <?php echo get_errors("mail"); ?>
+                                <input type="email" name="mail" placeholder="Email *" value="<?php // echo $store_mail; ?>" required />
+                                <?php // echo get_errors("mail"); ?>
                             </div>
                             <div class="card half-width right-float">
-                                <input type="text" name="phone" minlength="11" placeholder="Phone Number" value="<?php echo $store_numb; ?>" required />
-                                <?php echo get_errors("number"); ?>
+                                <input type="text" name="phone" minlength="11" placeholder="Phone Number" value="<?php // echo $store_numb; ?>" required />
+                                <?php // echo get_errors("number"); ?>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="row">
                             <div class="card full-width">
                                 <label for="message">Message *</label>
-                                <textarea id="message" name="message" placeholder="Nam porttitor blandit accumsan" required>
-                                    <?php echo $store_mesg; ?>
-                                </textarea>
+                                <textarea id="message" name="message" placeholder="Nam porttitor blandit accumsan" required></textarea>
                             </div>
                             <div class="card full-width">
                                 <span>* Nam porttitor blandit accumsan. Ut vel dictum sem</span>
@@ -179,7 +174,7 @@
                         </div>
                     </div>
                     <div class="footer">
-                        <span><?php echo $request_message; ?></span>
+                        <span><?php // echo $request_message; ?></span>
                         <input type="submit" value="SUBMIT MESSAGE" />
                     </div>
                 </form>
