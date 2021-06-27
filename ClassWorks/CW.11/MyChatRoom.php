@@ -35,12 +35,13 @@
                         <input type="text" class="form-control" name="username" placeholder="username" required />
                       </form>
 
-                      <?php if ($_GET['error'] == 'fialedtofinduser') { ?>
-                        <div class="alert alert-danger p-2 mt-2">
-                          Username not found
-                        </div>
+                      <?php if (isset($_GET['error'])) { ?>
+                        <?php if ($_GET['error'] == 'fialedtofinduser') { ?>
+                          <div class="alert alert-danger p-2 mt-2">
+                            Username not found
+                          </div>
+                        <?php } ?>
                       <?php } ?>
-
                     </div>
 
                     <div class="overflow-auto pe-1" style="height: calc(100vh - 5rem)">
@@ -56,7 +57,7 @@
 
                   </div>
                 </div>
-                
+
                 <div class="col-8">
                   <div class="h-100">
                     <?php if (array_key_exists('chater', $_GET)) { ?>
