@@ -1,6 +1,7 @@
 <?php
   require 'php/GetContacts.php';
   require 'php/GetMessages.php';
+  require 'php/Online.php';
 ?>
 
 <!doctype html>
@@ -29,7 +30,7 @@
 
                       <!-- A form for adding a new contact -->
                       <form class="d-flex justify-content-start" action="php/AddContact.php" method="post">
-                        <a href="php/Logout.php" class="d-inline-block btn btn-danger" style="margin-right:5px;">Logout</a>
+                        <a href="php/Logout.php?username=<?php echo $_GET['user']; ?>" class="d-inline-block btn btn-danger" style="margin-right:5px;">Logout</a>
                         <input type="submit" class="btn btn-outline-light me-2" name="" value="add" />
                         <input type="hidden" name="sender" value="<?php echo $_GET['user']; ?>" />
                         <input type="text" class="form-control" name="username" placeholder="username" required />
@@ -50,6 +51,9 @@
                         <a href="<?php echo "MyChatRoom.php?user={$_GET['user']}&chater=$contact"; ?>" class="btn btn-outline-light text-start w-100 my-2">
                           <div class="fs-5">
                             <?php echo $contact; ?>
+                            <?php if(isOnline($contact)) { ?>
+                              <span class="badge bg-success light-text">Is online</span>
+                            <?php } ?>
                           </div>
                         </a>
                       <?php } ?>
