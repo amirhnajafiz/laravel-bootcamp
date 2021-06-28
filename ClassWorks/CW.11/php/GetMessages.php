@@ -6,5 +6,4 @@
         $messages = $chat_content[$_GET['chater']] ?? [];
     else
         $messages = [];
-    $messages = array_slice($messages, -3);
 ?>

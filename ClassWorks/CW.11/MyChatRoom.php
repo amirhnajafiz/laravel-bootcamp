@@ -65,7 +65,7 @@
                 <div class="col-8">
                   <div class="h-100">
                     <?php if (array_key_exists('chater', $_GET)) { ?>
-                      <div class="me-4 align-bottom overflow-auto" style="height: calc(100vh - 5rem);">
+                      <div class="me-4 align-bottom overflow-auto" style="height: calc(100vh - 5rem); overflow:auto;">
                         <?php foreach ($messages as $message) { ?>
                           <div class="row">
                             <div class="d-flex justify-content-<?php echo $message['sender'] ? "end" : "start"; ?>">
