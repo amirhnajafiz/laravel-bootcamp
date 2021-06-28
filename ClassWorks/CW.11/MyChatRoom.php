@@ -16,26 +16,31 @@
 
     <title>Chat Room</title>
   </head>
-  <body>
-
+  <body class="bg-primary" style="height: 100vh;">
     <div class="container-fluid">
       <div class="row">
         <div class="d-flex justify-content-center">
-          <div class="col-12 col-md-8">
-            <div class="bg-primary border border-primary" style="height: 100vh;">
-              <div class="row h-100">
-                <div class="col-4 h-100">
-                  <div class="border-end px-2 h-100 ">
-                    <div class="my-2 p-2 border border-light rounded" style="height:3.5rem">
-
+          <div class="w-100">
+            <div>
+              <div class="row">
+                <div class="col-4">
+                  <div class="border-end px-3 border-2" style="height: 100vh;">
+                    <div class="d-flex flex-wrap align-items-center mb-4 p-2 pt-4" style="color:#ffffff; font-size:20px;"> 
+                      <span class="d-inline-block bg-secondary rounded-circle" style="width:50px; height:50px; margin-right: 5px;">
+                      </span>
+                      <span>
+                        <?php echo "Welcome " . $_GET['user']; ?>
+                      </span>
+                      <a href="php/Logout.php?username=<?php echo $_GET['user']; ?>" class="d-inline-block btn btn-danger mt-md-2 mt-sm-2" style="margin-left:10px;">Logout</a>
+                    </div>
+                    <div class="my-4 p-2">
                       <!-- A form for adding a new contact -->
-                      <form class="d-flex justify-content-start" action="php/AddContact.php" method="post">
-                        <a href="php/Logout.php?username=<?php echo $_GET['user']; ?>" class="d-inline-block btn btn-danger" style="margin-right:5px;">Logout</a>
-                        <input type="submit" class="btn btn-outline-light me-2" name="" value="add" />
+                      <form class="d-flex flex-wrap justify-content-start" action="php/AddContact.php" method="post">
+                        <input type="submit" class="btn btn-outline-light me-2" name="" value="Add" />
+                        <input type="reset" class="btn btn-outline-light me-2" name="" value="Clear" />
                         <input type="hidden" name="sender" value="<?php echo $_GET['user']; ?>" />
-                        <input type="text" class="form-control" name="username" placeholder="username" required />
+                        <input type="text" class="form-control mt-2" name="username" placeholder="username" required />
                       </form>
-
                       <?php if (isset($_GET['error'])) { ?>
                         <?php if ($_GET['error'] == 'fialedtofinduser') { ?>
                           <div class="alert alert-danger p-2 mt-2">
@@ -44,15 +49,14 @@
                         <?php exit(); } ?>
                       <?php } ?>
                     </div>
-
-                    <div class="overflow-auto pe-1" style="height: calc(100vh - 5rem)">
+                    <div class="overflow-auto pe-1">
                       <h3 class="text-light">Contacts</h3>
                       <?php foreach ($contacts as $contact) { ?>
-                        <a href="<?php echo "MyChatRoom.php?user={$_GET['user']}&chater=$contact"; ?>" class="btn btn-outline-light text-start w-100 my-2">
+                        <a href="<?php echo "MyChatRoom.php?user={$_GET['user']}&chater=$contact"; ?>" class="btn btn-outline-light text-start w-100 my-2 <?php if (array_key_exists('chater', $_GET)) if ($_GET['chater'] == $contact) echo 'bg-dark'; ?>">
                           <div class="fs-5">
                             <?php echo $contact; ?>
                             <?php if(isOnline($contact, 'data/online.txt')) { ?>
-                              <span class="badge bg-success light-text">Is online</span>
+                              <span class="d-inline-block badge bg-success light-text" style="float: right;">Is online</span>
                             <?php } ?>
                           </div>
                         </a>
@@ -61,7 +65,6 @@
 
                   </div>
                 </div>
-
                 <div class="col-8">
                   <div class="h-100">
                     <?php if (array_key_exists('chater', $_GET)) { ?>
@@ -106,9 +109,7 @@
         </div>
       </div>
     </div>
-
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
   </body>
 </html>
