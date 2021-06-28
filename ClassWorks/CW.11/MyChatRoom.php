@@ -68,11 +68,11 @@
                 <div class="col-8">
                   <div class="h-100">
                     <?php if (array_key_exists('chater', $_GET)) { ?>
-                      <div class="me-4 align-bottom overflow-auto" style="height: calc(100vh - 5rem); overflow:auto;">
+                      <div id="chatScreen" class="align-bottom overflow-auto" style="height: calc(100vh - 5rem); overflow:auto;">
                         <?php foreach ($messages as $message) { ?>
-                          <div class="row">
+                          <div class="row m-0">
                             <div class="d-flex justify-content-<?php echo $message['sender'] ? "end" : "start"; ?>">
-                              <div class="col-7">
+                              <div class="w-50">
                                 <div class="<?php echo $message['sender'] ? "bg-success" : "bg-warning"; ?> p-2 my-2 rounded">
                                   <?php echo $message['message']; ?>
                                   <div class="text-<?php echo $message['sender'] ? "info" : "secondary"; ?>">
@@ -84,8 +84,8 @@
                           </div>
                         <?php } ?>
                       </div>
-                      <div class="me-4 py-2" style="height: 5rem;">
-                        <div class="border border-light h-100 rounded">
+                      <div class="py-2" style="height: 5rem;">
+                        <div class="pt-2 border-top border-2">
                           <form class="h-100" action="php/SendMessage.php" method="post">
                             <div class="h-100 d-flex justify-content-start align-items-center">
                                 <input type="text" class="form-control mx-2" name="message" placeholder="Message..." required maxlength="100">
@@ -111,5 +111,9 @@
     </div>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script>
+      var objDiv = document.getElementById("chatScreen");
+      objDiv.scrollTop = objDiv.scrollHeight;
+    </script>
   </body>
 </html>
