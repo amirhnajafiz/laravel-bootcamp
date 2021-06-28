@@ -14,14 +14,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <title>Sign Up</title>
+    <style>
+      .myBg {
+        background: #24292e !important;
+        color: #ffffff !important;
+      }
+    </style>
   </head>
-  <body>
-
+  <body class="myBg">
     <div class="container">
       <div class="row">
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
           <div class="col-5">
-            <div class="border border-primary rounded w-100 text-primary">
+            <div class="border border-light rounded w-100 text-light">
               <h2 class="text-center mt-4">Sign Up</h2>
               <?php if (isset($_GET['status'])) { ?>
                 <?php if ($_GET['status'] == "invalidusername") { ?>
@@ -33,14 +38,14 @@
               <form class="" action="php/SignUp.php">
                 <div class="p-3 pt-2">
                   <label for="username" class="form-label">Username</label>
-                  <input type="text" class="form-control" name="username" id="username" required>
+                  <input type="text" class="form-control" placeholder="Name..." name="username" id="username" required />
                 </div>
                 <div class="p-3">
                   <label for="password" class="form-label">Password</label>
-                  <input type="password" class="form-control" name="password" id="password" required>
+                  <input type="password" class="form-control" placeholder="Password..." name="password" id="password" required />
                 </div>
                 <div class="p-3 d-grid">
-                  <input type="submit" class="btn btn-primary" value="Sign Up">
+                  <input type="submit" class="btn btn-primary" value="Sign Up" />
                 </div>
                 <div class="d-flex justify-content-center mb-3">
                   <a class="text-decoration-none" href="SignIn.php">Have an account. Sign in.</a>

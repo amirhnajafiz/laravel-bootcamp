@@ -15,8 +15,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <title>Chat Room</title>
+    <style>
+      .myBg {
+        background: #24292e !important;
+        color: #ffffff !important;
+      }
+    </style>
   </head>
-  <body class="bg-primary" style="height: 100vh;">
+  <body class="myBg" style="height: 100vh;">
     <div class="container-fluid">
       <div class="row">
         <div class="d-flex justify-content-center">
@@ -52,7 +58,7 @@
                     <div class="overflow-auto pe-1">
                       <h3 class="text-light">Contacts</h3>
                       <?php foreach ($contacts as $contact) { ?>
-                        <a href="<?php echo "MyChatRoom.php?user={$_GET['user']}&chater=$contact"; ?>" class="btn btn-outline-light text-start w-100 my-2 <?php if (array_key_exists('chater', $_GET)) if ($_GET['chater'] == $contact) echo 'bg-dark'; ?>">
+                        <a href="<?php echo "MyChatRoom.php?user={$_GET['user']}&chater=$contact"; ?>" class="btn btn-outline-light text-start w-100 my-2 <?php if (array_key_exists('chater', $_GET)) if ($_GET['chater'] == $contact) echo 'bg-light text-dark'; ?>">
                           <div class="fs-5">
                             <?php echo $contact; ?>
                             <?php if(isOnline($contact, 'data/online.txt')) { ?>
@@ -73,7 +79,7 @@
                           <div class="row m-0">
                             <div class="d-flex justify-content-<?php echo $message['sender'] ? "end" : "start"; ?>">
                               <div class="w-50">
-                                <div class="<?php echo $message['sender'] ? "bg-success" : "bg-warning"; ?> p-2 my-2 rounded">
+                                <div class="<?php echo $message['sender'] ? "bg-light text-dark" : "bg-dark"; ?> p-2 my-2 rounded">
                                   <?php echo $message['message']; ?>
                                   <div class="text-<?php echo $message['sender'] ? "info" : "secondary"; ?>">
                                     <?php echo date('l jS F Y h:i:s A', $message['time'])?>
@@ -85,13 +91,13 @@
                         <?php } ?>
                       </div>
                       <div class="py-2" style="height: 5rem;">
-                        <div class="pt-2 border-top border-2">
+                        <div class="pt-3 border-top border-2">
                           <form class="h-100" action="php/SendMessage.php" method="post">
                             <div class="h-100 d-flex justify-content-start align-items-center">
                                 <input type="text" class="form-control mx-2" name="message" placeholder="Message..." required maxlength="100">
                                 <input type="hidden" name="sender" value="<?php echo $_GET['user'] ?>">
                                 <input type="hidden" name="to" value="<?php echo $_GET['chater'] ?>">
-                                <input type="submit" class="btn btn-outline-light mx-2" value="Send">
+                                <input type="submit" class="btn mx-2 btn-primary" value="Send">
                             </div>
                           </form>
                         </div>
