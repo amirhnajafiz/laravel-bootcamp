@@ -51,7 +51,7 @@
                         <a href="<?php echo "MyChatRoom.php?user={$_GET['user']}&chater=$contact"; ?>" class="btn btn-outline-light text-start w-100 my-2">
                           <div class="fs-5">
                             <?php echo $contact; ?>
-                            <?php if(isOnline($contact)) { ?>
+                            <?php if(isOnline($contact, 'data/online.txt')) { ?>
                               <span class="badge bg-success light-text">Is online</span>
                             <?php } ?>
                           </div>

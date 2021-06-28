@@ -28,8 +28,8 @@
      * @return array of online users
      * 
      */
-    function getOnlines() {
-        $content = file_get_contents('data/online.txt');
+    function getOnlines($path) {
+        $content = file_get_contents($path);
         return explode("$$--", $content);
     }
 
@@ -38,8 +38,8 @@
      * @param username is the name of the user to check
      * @return boolean true means online and false means not
      */
-    function isOnline($username) {
-        $list = getOnlines();
+    function isOnline($username, $path) {
+        $list = getOnlines($path);
         foreach($list as $user) {
             if ($user == $username)
                 return true;

@@ -26,7 +26,12 @@
               <?php if (isset($_GET['status'])) { ?>
                 <?php if ($_GET['status'] == "notfound") { ?>
                   <div class="alert alert-danger p-2 m-3">
-                    Username and Password doesn't match :(
+                    Username or Password doesn't match.
+                  </div>
+                <?php } ?>
+                <?php if ($_GET['status'] == "duplicate") { ?>
+                  <div class="alert alert-danger p-2 m-3">
+                    You have another device or tab logged in before.
                   </div>
                 <?php } ?>
               <?php } ?>
