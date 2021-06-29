@@ -22,9 +22,23 @@ class Dir extends File
         $this->list[] = $file;
     }
 
+    public function removeFile($name)
+    {
+        $index = 0;
+        foreach($this->getList() as $file)
+        {
+            if ($file->equals($name))
+            {
+                unset($this->list[$index]);
+                return;
+            }
+            $index++;
+        }
+    }
+
     public function __debugInfo()
     {
-        return ["Directory:" => $this->getName(),];
+        return ["Directory:" => $this->getName(), "Files:" => count($this->getList()),];
     }
 }
 

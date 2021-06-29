@@ -18,6 +18,11 @@ class File
     {
         return ["File:" => $this->getName(),];
     }
+
+    public function equals($name)
+    {
+        return $this->name === $name;
+    }
 }
 
 ?>
