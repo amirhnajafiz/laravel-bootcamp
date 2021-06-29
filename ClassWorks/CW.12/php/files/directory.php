@@ -19,7 +19,7 @@ class Dir extends File
 
     public function __debugInfo()
     {
-        return "Directory_Path:" . $this->getPath();
+        return ["Directory_Path:" => $this->getPath(),];
     }
 }
 

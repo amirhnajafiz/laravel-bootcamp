@@ -27,7 +27,7 @@ class Manager
 
     public function addDirectory($path)
     {
-        $this->list[] = new Directory($path);
+        $this->list[] = new Dir($path);
     }
 
     public function getList($filter = 'File')

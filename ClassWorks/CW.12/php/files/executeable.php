@@ -19,7 +19,7 @@ class Executeable extends File
 
     public function __debugInfo()
     {
-        return "Executable_Path:" . $this->getPath();
+        return ["Executable_Path:" => $this->getPath(),];
     }
 }
 

@@ -16,7 +16,7 @@ class File
 
     public function __debugInfo()
     {
-        return "File_Path:" . $this->getPath();
+        return ["File_Path:" => $this->getPath(),];
     }
 }
 
