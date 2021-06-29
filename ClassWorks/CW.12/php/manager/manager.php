@@ -35,7 +35,7 @@ class Manager
 
     public function addImgFile($name, $content, $dir = "")
     {
-        $myPath = explode("/", $dir, 1);
+        $myPath = explode("/", $dir, 2);
         if (count($myPath) == 1)
         {
             $myPath[] = "";
@@ -53,7 +53,7 @@ class Manager
 
     public function addDirectory($name, $dir = "")
     {
-        $myPath = explode("/", $dir, 1);
+        $myPath = explode("/", $dir, 2);
         if (count($myPath) == 1)
         {
             $myPath[] = "";
@@ -71,11 +71,16 @@ class Manager
 
     public function removeFile($name, $dir = "")
     {
+        $myPath = explode("/", $dir, 2);
+        if (count($myPath) == 1)
+        {
+            $myPath[] = "";
+        }
         foreach($this->getList("Dir") as $dirs)
         {
-            if ($dirs->equals($dir))
+            if ($dirs->equals($myPath[0]))
             {
-                $dirs->removeFile($name);
+                $dirs->removeFile($name, $myPath[1]);
                 return;
             }
         }

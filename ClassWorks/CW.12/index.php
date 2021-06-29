@@ -42,7 +42,7 @@ foreach($MyManager->getList() as $singleFile)
     var_dump($singleFile);
 }
 
-$MyManager->removeFile("/");
+$MyManager->removeFile("ips", "root/host");
 
 foreach($MyManager->getList('Dir') as $singleFile)
 {

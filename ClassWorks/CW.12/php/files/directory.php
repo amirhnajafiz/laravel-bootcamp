@@ -39,8 +39,24 @@ class Dir extends File
         $this->list[] = $file;
     }
 
-    public function removeFile($name)
+    public function removeFile($name, $dir = "")
     {
+        $myPath = explode("/", $dir, 2);
+        if (count($myPath) == 1)
+        {
+            $myPath[] = "";
+        }
+        foreach($this->getList() as $dirs)
+        {
+            if ($dirs instanceof $this)
+            {
+                if ($dirs->equals($myPath[0]))
+                {
+                    $dirs->removeFile($name, $myPath[1]);
+                    return;
+                }
+            }
+        }
         $index = 0;
         foreach($this->getList() as $file)
         {
