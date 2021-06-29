@@ -15,13 +15,19 @@ class Manager
         $this->list = [];
     }
 
-    public function addTextFile($name, $content, $dir = "")
+    public function getDirectoryName($dir)
     {
         $myPath = explode("/", $dir, 2);
         if (count($myPath) == 1)
         {
             $myPath[] = "";
         }
+        return $myPath;
+    }
+
+    public function addTextFile($name, $content, $dir = "")
+    {
+        $myPath = $this->getDirectoryName($dir);
         foreach($this->getList("Dir") as $dirs)
         {
             if ($dirs->equals($myPath[0]))
@@ -35,11 +41,7 @@ class Manager
 
     public function addImgFile($name, $content, $dir = "")
     {
-        $myPath = explode("/", $dir, 2);
-        if (count($myPath) == 1)
-        {
-            $myPath[] = "";
-        }
+        $myPath = $this->getDirectoryName($dir);
         foreach($this->getList("Dir") as $dirs)
         {
             if ($dirs->equals($myPath[0]))
@@ -53,11 +55,7 @@ class Manager
 
     public function addDirectory($name, $dir = "")
     {
-        $myPath = explode("/", $dir, 2);
-        if (count($myPath) == 1)
-        {
-            $myPath[] = "";
-        }
+        $myPath = $this->getDirectoryName($dir);
         foreach($this->getList("Dir") as $dirs)
         {
             if ($dirs->equals($myPath[0]))
@@ -71,11 +69,7 @@ class Manager
 
     public function removeFile($name, $dir = "")
     {
-        $myPath = explode("/", $dir, 2);
-        if (count($myPath) == 1)
-        {
-            $myPath[] = "";
-        }
+        $myPath = $this->getDirectoryName($dir);
         foreach($this->getList("Dir") as $dirs)
         {
             if ($dirs->equals($myPath[0]))

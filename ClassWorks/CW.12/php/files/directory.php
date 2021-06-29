@@ -17,13 +17,19 @@ class Dir extends File
         return $this->list;
     }
 
-    public function addFile($file, $dir = "")
+    public function getDirectoryName($dir)
     {
         $myPath = explode("/", $dir, 2);
         if (count($myPath) == 1)
         {
             $myPath[] = "";
         }
+        return $myPath;
+    }
+
+    public function addFile($file, $dir = "")
+    {
+        $myPath = $this->getDirectoryName($dir);
         foreach($this->getList() as $dirs)
         {
             if ($dirs instanceof $this)
@@ -41,11 +47,7 @@ class Dir extends File
 
     public function removeFile($name, $dir = "")
     {
-        $myPath = explode("/", $dir, 2);
-        if (count($myPath) == 1)
-        {
-            $myPath[] = "";
-        }
+        $myPath = $this->getDirectoryName($dir);
         foreach($this->getList() as $dirs)
         {
             if ($dirs instanceof $this)
