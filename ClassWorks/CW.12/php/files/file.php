@@ -2,21 +2,21 @@
 
 class File
 {
-    protected $file_path;
+    protected $name;
 
-    public function __construct($path)
+    public function __construct($name)
     {
-        $this->file_path = $path;
+        $this->name = $name;
     }
 
-    public function getPath()
+    public function getName()
     {
-        return $this->file_path;
+        return $this->name;
     }
 
     public function __debugInfo()
     {
-        return ["File_Path:" => $this->getPath(),];
+        return ["File:" => $this->getName(),];
     }
 }
 

@@ -15,19 +15,19 @@ class Manager
         $this->list = [];
     }
 
-    public function addTextFile($path, $content)
+    public function addTextFile($name, $content)
     {
-        $this->list[] = new TextFile($path, $content);
+        $this->list[] = new TextFile($name, $content);
     }
 
-    public function addImgFile($path, $content)
+    public function addImgFile($name, $content)
     {
-        $this->list[] = new ImgFile($path, $content);
+        $this->list[] = new ImgFile($name, $content);
     }
 
-    public function addDirectory($path)
+    public function addDirectory($name)
     {
-        $this->list[] = new Dir($path);
+        $this->list[] = new Dir($name);
     }
 
     public function getList($filter = 'File')

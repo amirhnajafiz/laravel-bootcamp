@@ -6,9 +6,9 @@ class Dir extends File
 {
     protected $list;
     
-    public function __construct($path)
+    public function __construct($name)
     {
-        $this->file_path = $path;
+        $this->name = $name;
         $this->list = [];
     }
 
@@ -17,9 +17,14 @@ class Dir extends File
         return $this->list;
     }
 
+    public function addFile($file)
+    {
+        $this->list[] = $file;
+    }
+
     public function __debugInfo()
     {
-        return ["Directory_Path:" => $this->getPath(),];
+        return ["Directory:" => $this->getName(),];
     }
 }
 

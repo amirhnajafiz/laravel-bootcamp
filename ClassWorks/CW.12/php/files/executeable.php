@@ -6,9 +6,9 @@ class Executeable extends File
 {
     protected $content;
     
-    public function __construct($path, $content)
+    public function __construct($name, $content)
     {
-        $this->file_path = $path;
+        $this->name = $name;
         $this->content = $content;
     }
 
@@ -19,7 +19,7 @@ class Executeable extends File
 
     public function __debugInfo()
     {
-        return ["Executable_Path:" => $this->getPath(),];
+        return ["Executable:" => $this->getName(),];
     }
 }
 
