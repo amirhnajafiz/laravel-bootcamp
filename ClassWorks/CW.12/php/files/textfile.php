@@ -1,6 +1,6 @@
 <?php
 
-require "executeable.php";
+require_once "executeable.php";
 
 class TextFile extends Executeable
 {

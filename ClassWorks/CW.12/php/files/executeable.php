@@ -1,6 +1,6 @@
 <?php
 
-require "file.php";
+require_once "file.php";
 
 class Executeable extends File
 {
@@ -19,7 +19,7 @@ class Executeable extends File
 
     public function __debugInfo()
     {
-        return "Executeable_Path:" . $this->getPath();
+        return "Executable_Path:" . $this->getPath();
     }
 }
 

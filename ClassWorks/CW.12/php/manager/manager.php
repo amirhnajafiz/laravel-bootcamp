@@ -1,10 +1,10 @@
 <?php
 
-require "../files/file.php";
-require "../files/executeable.php";
-require "../files/directory.php";
-require "../files/textfile.php";
-require "../files/imgfile.php";
+require_once "php/files/file.php";
+require_once "php/files/executeable.php";
+require_once "php/files/directory.php";
+require_once "php/files/textfile.php";
+require_once "php/files/imgfile.php";
 
 class Manager
 {
@@ -30,7 +30,7 @@ class Manager
         $this->list[] = new Directory($path);
     }
 
-    public function getList($filter = File)
+    public function getList($filter = 'File')
     {
         $temp = [];
         foreach($this->list as $singleFile)

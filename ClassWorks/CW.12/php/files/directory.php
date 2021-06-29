@@ -1,8 +1,8 @@
 <?php
 
-require "file.php";
+require_once "file.php";
 
-class Directory extends File
+class Dir extends File
 {
     protected $list;
     
