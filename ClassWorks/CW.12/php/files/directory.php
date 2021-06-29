@@ -17,8 +17,25 @@ class Dir extends File
         return $this->list;
     }
 
-    public function addFile($file)
+    public function addFile($file, $dir = "")
     {
+        $myPath = explode("/", $dir, 2);
+        if (count($myPath) == 1)
+        {
+            $myPath[] = "";
+        }
+        foreach($this->getList() as $dirs)
+        {
+            if ($dirs instanceof $this)
+            {
+                if ($dirs->equals($myPath[0]))
+                {
+
+                    $dirs->addFile($file, $myPath[1]);
+                    return;
+                }
+            }
+        }
         $this->list[] = $file;
     }
 
@@ -38,7 +55,12 @@ class Dir extends File
 
     public function __debugInfo()
     {
-        return ["Directory:" => $this->getName(), "Files:" => count($this->getList()),];
+        $temp = [];
+        foreach($this->getList() as $file)
+        {
+            $temp[] = var_export($file, true);
+        }
+        return ["Directory:" => $this->getName(), "Files:" => count($this->getList()), "In:" => $temp,];
     }
 }
 

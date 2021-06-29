@@ -15,19 +15,78 @@ class Manager
         $this->list = [];
     }
 
-    public function addTextFile($name, $content)
+    public function addTextFile($name, $content, $dir = "")
     {
+        $myPath = explode("/", $dir, 2);
+        if (count($myPath) == 1)
+        {
+            $myPath[] = "";
+        }
+        foreach($this->getList("Dir") as $dirs)
+        {
+            if ($dirs->equals($myPath[0]))
+            {
+                $dirs->addFile(new TextFile($name, $content), $myPath[1]);
+                return;
+            }
+        }
         $this->list[] = new TextFile($name, $content);
     }
 
-    public function addImgFile($name, $content)
+    public function addImgFile($name, $content, $dir = "")
     {
+        $myPath = explode("/", $dir, 1);
+        if (count($myPath) == 1)
+        {
+            $myPath[] = "";
+        }
+        foreach($this->getList("Dir") as $dirs)
+        {
+            if ($dirs->equals($myPath[0]))
+            {
+                $dirs->addFile(new ImgFile($name, $content), $myPath[1]);
+                return;
+            }
+        }
         $this->list[] = new ImgFile($name, $content);
     }
 
-    public function addDirectory($name)
+    public function addDirectory($name, $dir = "")
     {
+        $myPath = explode("/", $dir, 1);
+        if (count($myPath) == 1)
+        {
+            $myPath[] = "";
+        }
+        foreach($this->getList("Dir") as $dirs)
+        {
+            if ($dirs->equals($myPath[0]))
+            {
+                $dirs->addFile(new Dir($name), $myPath[1]);
+                return;
+            }
+        }
         $this->list[] = new Dir($name);
+    }
+
+    public function removeFile($name, $dir = "")
+    {
+        foreach($this->getList("Dir") as $dirs)
+        {
+            if ($dirs->equals($dir))
+            {
+                $dirs->removeFile($name);
+                return;
+            }
+        }
+        for ($i = 0; $i < count($this->list); $i++)
+        {
+            if ($this->list[$i]->equals($name))
+            {
+                unset($this->list[$i]);
+                return;
+            }
+        }
     }
 
     public function getList($filter = 'File')
