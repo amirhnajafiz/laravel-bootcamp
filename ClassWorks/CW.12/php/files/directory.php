@@ -12,11 +12,6 @@ class Dir extends File
         $this->list = [];
     }
 
-    public function getList()
-    {
-        return $this->list;
-    }
-
     public function getDirectoryName($dir)
     {
         $myPath = explode("/", $dir, 2);
@@ -27,19 +22,43 @@ class Dir extends File
         return $myPath;
     }
 
+    public function getList($filter = 'File', $dir = "")
+    {
+        $temp = [];
+        if ($dir == "")
+        {
+            foreach($this->list as $singleFile)
+            {
+                if ($singleFile instanceof $filter)
+                {
+                    $temp[] = $singleFile;
+                }
+            }
+            return $temp;
+        } else {
+            $myPath = $this->getDirectoryName($dir);
+            foreach($this->getList() as $dirs)
+            {
+                if ($dirs instanceof $this)
+                {
+                    if ($dirs->equals($myPath[0]))
+                    {
+                        return $dirs->getList($filter, $myPath[1]);
+                    }
+                }
+            }
+        }
+    }
+
     public function addFile($file, $dir = "")
     {
         $myPath = $this->getDirectoryName($dir);
-        foreach($this->getList() as $dirs)
+        foreach($this->getList("Dir") as $dirs)
         {
-            if ($dirs instanceof $this)
+            if ($dirs->equals($myPath[0]))
             {
-                if ($dirs->equals($myPath[0]))
-                {
-
-                    $dirs->addFile($file, $myPath[1]);
-                    return;
-                }
+                $dirs->addFile($file, $myPath[1]);
+                return;
             }
         }
         $this->list[] = $file;
@@ -48,15 +67,12 @@ class Dir extends File
     public function removeFile($name, $dir = "")
     {
         $myPath = $this->getDirectoryName($dir);
-        foreach($this->getList() as $dirs)
+        foreach($this->getList("Dir") as $dirs)
         {
-            if ($dirs instanceof $this)
+            if ($dirs->equals($myPath[0]))
             {
-                if ($dirs->equals($myPath[0]))
-                {
-                    $dirs->removeFile($name, $myPath[1]);
-                    return;
-                }
+                $dirs->removeFile($name, $myPath[1]);
+                return;
             }
         }
         $index = 0;

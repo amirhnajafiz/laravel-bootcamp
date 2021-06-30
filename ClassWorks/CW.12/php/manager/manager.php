@@ -8,97 +8,41 @@ require_once "php/files/imgfile.php";
 
 class Manager
 {
-    protected $list;
+    protected $root;
 
     public function __construct()
     {
-        $this->list = [];
-    }
-
-    public function getDirectoryName($dir)
-    {
-        $myPath = explode("/", $dir, 2);
-        if (count($myPath) == 1)
-        {
-            $myPath[] = "";
-        }
-        return $myPath;
+        $this->root = new Dir("/");
     }
 
     public function addTextFile($name, $content, $dir = "")
     {
-        $myPath = $this->getDirectoryName($dir);
-        foreach($this->getList("Dir") as $dirs)
-        {
-            if ($dirs->equals($myPath[0]))
-            {
-                $dirs->addFile(new TextFile($name, $content), $myPath[1]);
-                return;
-            }
-        }
-        $this->list[] = new TextFile($name, $content);
+        $this->root->addFile(new TextFile($name, $content), $dir);
     }
 
     public function addImgFile($name, $content, $dir = "")
     {
-        $myPath = $this->getDirectoryName($dir);
-        foreach($this->getList("Dir") as $dirs)
-        {
-            if ($dirs->equals($myPath[0]))
-            {
-                $dirs->addFile(new ImgFile($name, $content), $myPath[1]);
-                return;
-            }
-        }
-        $this->list[] = new ImgFile($name, $content);
+        $this->root->addFile(new ImgFile($name, $content), $dir);
     }
 
     public function addDirectory($name, $dir = "")
     {
-        $myPath = $this->getDirectoryName($dir);
-        foreach($this->getList("Dir") as $dirs)
-        {
-            if ($dirs->equals($myPath[0]))
-            {
-                $dirs->addFile(new Dir($name), $myPath[1]);
-                return;
-            }
-        }
-        $this->list[] = new Dir($name);
+        $this->root->addFile(new Dir($name), $dir);
     }
 
     public function removeFile($name, $dir = "")
     {
-        $myPath = $this->getDirectoryName($dir);
-        foreach($this->getList("Dir") as $dirs)
-        {
-            if ($dirs->equals($myPath[0]))
-            {
-                $dirs->removeFile($name, $myPath[1]);
-                return;
-            }
-        }
-        for ($i = 0; $i < count($this->list); $i++)
-        {
-            if ($this->list[$i]->equals($name))
-            {
-                unset($this->list[$i]);
-                return;
-            }
-        }
+        $this->root->removeFile($name, $dir);
     }
 
-    public function getList($filter = 'File')
+    public function getList($filter = 'File', $dir = "")
     {
-        $temp = [];
-        foreach($this->list as $singleFile)
-        {
-            if ($singleFile instanceof $filter)
-            {
-                $temp[] = $singleFile;
-            }
-        }
-        return $temp;
+        return $this->root->getList($filter, $dir);
+    }
+
+    public function __debugInfo()
+    {
+        return ["Type" => "Root", "Content" => var_export($this->root, true)];
     }
 }
 

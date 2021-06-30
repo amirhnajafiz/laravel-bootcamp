@@ -17,36 +17,10 @@ $MyManager->addDirectory("host" ,"root");
 $MyManager->addTextFile("passwords", "temp" ,"root");
 $MyManager->addTextFile("ips", "temp" ,"root/host");
 
-foreach($MyManager->getList('Dir') as $singleFile)
-{
-    var_dump($singleFile);
-}
-
-foreach($MyManager->getList('TextFile') as $singleFile)
-{
-    var_dump($singleFile);
-}
-
-foreach($MyManager->getList('ImgFile') as $singleFile)
-{
-    var_dump($singleFile);
-}
-
-foreach($MyManager->getList('Executeable') as $singleFile)
-{
-    var_dump($singleFile);
-}
-
-foreach($MyManager->getList() as $singleFile)
-{
-    var_dump($singleFile);
-}
+var_dump($MyManager);
 
 $MyManager->removeFile("ips", "root/host");
 
-foreach($MyManager->getList('Dir') as $singleFile)
-{
-    var_dump($singleFile);
-}
+var_dump($MyManager);
 
 ?>
