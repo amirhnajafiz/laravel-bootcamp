@@ -17,7 +17,6 @@ class Manager
 
     public function addTextFile($name, $content, $dir = "")
     {
-        echo "Add text file in " . $dir . "\n";
         $this->root->addFile(new TextFile($name, $content), $dir);
     }
 
@@ -52,18 +51,25 @@ class Manager
         {
             if ($list[$single]['isdir'])
             {
-                $name = explode("/", $single);
+                $parts = explode("/", $single);
+                $name = $parts[count($parts)-1];
                 $path = "";
-                for($i = 0; $i < count($name) - 2; $i++)
-                    $path = $path . "/" . $name[$i];
-                $this->addDirectory($name[count($name)-1], $path);
+                unset($parts[count($parts)-1]);
+                if (count($parts) != 0)
+                {
+                    $path = implode("/", $parts);
+                }
+                $this->addDirectory($name, $path);
                 $this->loadFiles($list[$single]['content']);
             } else {
-                $type = explode(".", $list[$single]['content']);
-                $name = explode("/", $single);
+                $type = explode(".", $single);
+                $parts = explode("/", $single);
                 $path = "";
-                for($i = 0; $i < count($name) - 1; $i++)
-                    $path = $path . "/" . $name[$i];
+                unset($parts[count($parts)-1]);
+                if (count($parts) != 0)
+                {
+                    $path = implode("/", $parts);
+                }
                 $content = file_get_contents("assets/data/" . $single);
                 if ($type[count($type)-1] == "png")
                 {

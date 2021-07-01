@@ -5,6 +5,7 @@ function delTree($dir) {
     foreach ($files as $file) {
         (is_dir("$dir/$file")) ? delTree("$dir/$file") : unlink("$dir/$file");
     }
+
     return rmdir($dir);
 }
 
@@ -15,13 +16,13 @@ function getTree($dir) {
         $parts = explode("/", $dir);
         $path = "";
         for($i = 2; $i < count($parts); $i++)
-            $path = $path . $parts[$i];
+            $path = $path . $parts[$i] . "/";
         if (is_dir("$dir/$file")) {
-            $list["$path/$file"]["content"] = getTree("$dir/$file");
-            $list["$path/$file"]["isdir"] = true;
+            $list["$path$file"]["content"] = getTree("$dir/$file");
+            $list["$path$file"]["isdir"] = true;
         } else {
-            $list["$path/$file"]["content"] = $file;
-            $list["$path/$file"]["isdir"] = false;
+            $list["$path$file"]["content"] = $file;
+            $list["$path$file"]["isdir"] = false;
         }
     }
     return $list;

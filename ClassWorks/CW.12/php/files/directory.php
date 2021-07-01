@@ -89,14 +89,14 @@ class Dir extends File
 
     public function createFiles($path = "")
     {
-        mkdir($path . $this->getName(), 0777);
+        mkdir($path . '/' . $this->getName(), 0777);
+        $path = $path . "/" . $this->getName();
         foreach($this->getList("Executeable") as $singleFile)
         {
             $myFile = fopen($path . "/" . $singleFile->getName() , "w");
             fwrite($myFile, $singleFile->getContent());
             fclose($myFile);
         }
-        $path = $path . "/" . $this->getName();
         foreach($this->getList("Dir") as $singleFile)
         {
             $singleFile->createFiles($path);
