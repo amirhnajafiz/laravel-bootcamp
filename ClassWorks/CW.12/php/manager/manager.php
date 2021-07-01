@@ -81,6 +81,11 @@ class Manager
         }
     }
 
+    public function search($input)
+    {
+        return $this->root->search($input);
+    }
+
     public function __debugInfo()
     {
         return ["Type" => "Root", "Content" => var_export($this->root, true)];

@@ -11,12 +11,11 @@ $MyManager->loadFiles($list);
 
 // Enter your inputs in here
 // =========================
-
-
+$out = $MyManager->search("te");
+var_dump($out);
 // =========================
 
 delTree('assets/data/');
 $MyManager->makeFiles();
-var_dump($MyManager);
 
 ?>

@@ -114,6 +114,26 @@ class Dir extends File
         }
     }
 
+    public function search($input, $path = "")
+    {
+        $list = [];
+        foreach($this->getList("Dir") as $dir)
+        {
+            $temp = $dir->search($input, $path . "/" . $dir->getName());
+            if (count($temp) > 0)
+                $list = array_merge($list, $temp);
+        }
+        foreach($this->getList() as $single)
+        {
+            if (strpos($single->getName(), $input) !== false)
+                $list[] = $path . "/" . $single->getName();
+            if ( !($single instanceof $this))
+                if (strpos($single->getContent(), $input) !== false)
+                    $list[] = $path . "/" . $single->getName() . " (In content)";
+        }
+        return $list;
+    }
+
     public function __debugInfo()
     {
         $temp = [];
