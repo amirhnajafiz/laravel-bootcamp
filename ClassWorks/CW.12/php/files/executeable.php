@@ -2,6 +2,11 @@
 
 require_once "file.php";
 
+/**
+ * A file that is not directory and it
+ * has actual content.
+ * 
+ */
 class Executeable extends File
 {
     protected $content;

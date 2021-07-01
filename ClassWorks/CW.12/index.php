@@ -17,5 +17,6 @@ $MyManager->loadFiles($list);
 
 delTree('assets/data/');
 $MyManager->makeFiles();
+var_dump($MyManager);
 
 ?>

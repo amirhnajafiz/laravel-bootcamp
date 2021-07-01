@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * File class is the superclass of all of our 
+ * files ( text, image, dir, ...)
+ * 
+ */
 class File
 {
     protected $name;

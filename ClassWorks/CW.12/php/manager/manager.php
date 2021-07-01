@@ -71,7 +71,7 @@ class Manager
                     $path = implode("/", $parts);
                 }
                 $content = file_get_contents("assets/data/" . $single);
-                if ($type[count($type)-1] == "png")
+                if (ImgFile::isImage($type[count($type)-1]))
                 {
                     $this->addImgFile($list[$single]['content'], $content, $path);
                 } else {

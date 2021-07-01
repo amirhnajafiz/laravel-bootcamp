@@ -2,6 +2,12 @@
 
 require_once "file.php";
 
+/**
+ * Directory class holdes the files
+ * inside a list and has the search, add, remove
+ * methods init.
+ * 
+ */
 class Dir extends File
 {
     protected $list;
@@ -12,7 +18,7 @@ class Dir extends File
         $this->list = [];
     }
 
-    public function getDirectoryName($dir)
+    private function getDirectoryName($dir)
     {
         $myPath = explode("/", $dir, 2);
         if (count($myPath) == 1)
@@ -87,15 +93,20 @@ class Dir extends File
         }
     }
 
+    private function createSingleFile($name, $content, $path)
+    {
+        $myFile = fopen($path . "/" . $name , "w");
+        fwrite($myFile, $content);
+        fclose($myFile);
+    }
+
     public function createFiles($path = "")
     {
         mkdir($path . '/' . $this->getName(), 0777);
         $path = $path . "/" . $this->getName();
         foreach($this->getList("Executeable") as $singleFile)
         {
-            $myFile = fopen($path . "/" . $singleFile->getName() , "w");
-            fwrite($myFile, $singleFile->getContent());
-            fclose($myFile);
+            $this->createSingleFile($singleFile->getName(), $singleFile->getContent(), $path);
         }
         foreach($this->getList("Dir") as $singleFile)
         {
