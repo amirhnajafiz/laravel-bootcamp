@@ -89,7 +89,6 @@ class Dir extends File
 
     public function createFiles($path = "")
     {
-        echo $path . "\n";
         mkdir($path . $this->getName(), 0777);
         foreach($this->getList("Executeable") as $singleFile)
         {
