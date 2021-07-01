@@ -3,7 +3,11 @@
 require_once "php/manager/manager.php";
 require "php/utils.php";
 
-delTree('assets/data');
+// delTree('assets/data');
+$list = getTree('assets/data');
+var_dump($list);
+exit();
+
 $MyManager = new Manager();
 
 $MyManager->addTextFile("php.ini", "temp");

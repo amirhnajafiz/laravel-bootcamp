@@ -8,4 +8,19 @@ function delTree($dir) {
     return rmdir($dir);
 }
 
+function getTree($dir) {
+    $files = array_diff(scandir($dir), array('.','..'));
+    $list = [];
+    foreach ($files as $file) {
+        if (is_dir("$dir/$file")) {
+            $list["$dir/$file"]["content"] = getTree("$dir/$file");
+            $list["$dir/$file"]["isdir"] = true;
+        } else {
+            $list["$dir/$file"]["content"] = $file;
+            $list["$dir/$file"]["isdir"] = false;
+        }
+    }
+    return $list;
+}
+
 ?>
