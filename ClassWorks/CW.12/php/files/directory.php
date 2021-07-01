@@ -87,6 +87,23 @@ class Dir extends File
         }
     }
 
+    public function createFiles($path = "")
+    {
+        echo $path . "\n";
+        mkdir($path . $this->getName(), 0777);
+        foreach($this->getList("Executeable") as $singleFile)
+        {
+            $myFile = fopen($path . "/" . $singleFile->getName() , "w");
+            fwrite($myFile, $singleFile->getContent());
+            fclose($myFile);
+        }
+        $path = $path . "/" . $this->getName();
+        foreach($this->getList("Dir") as $singleFile)
+        {
+            $singleFile->createFiles($path);
+        }
+    }
+
     public function __debugInfo()
     {
         $temp = [];

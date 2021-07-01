@@ -1,7 +1,9 @@
 <?php
 
 require_once "php/manager/manager.php";
+require "php/utils.php";
 
+delTree('assets/data');
 $MyManager = new Manager();
 
 $MyManager->addTextFile("php.ini", "temp");
@@ -19,8 +21,10 @@ $MyManager->addTextFile("ips", "temp" ,"root/host");
 
 var_dump($MyManager);
 
-$MyManager->removeFile("ips", "root/host");
+//$MyManager->removeFile("ips", "root/host");
 
-var_dump($MyManager);
+//var_dump($MyManager);
+
+$MyManager->makeFiles();
 
 ?>

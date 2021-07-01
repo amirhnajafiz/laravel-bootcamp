@@ -40,6 +40,11 @@ class Manager
         return $this->root->getList($filter, $dir);
     }
 
+    public function makeFiles()
+    {
+        $this->root->createFiles('assets/data');
+    }
+
     public function __debugInfo()
     {
         return ["Type" => "Root", "Content" => var_export($this->root, true)];
