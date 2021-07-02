@@ -5,7 +5,7 @@ require "php/utils.php";
 
 function menu()
 {
-    $commands = ['search [input]', 'view all', 'exit'];
+    $commands = ['search [input]', 'view all', 'tree', 'exit'];
     echo "+++++++++++++++++\n";
     echo "+++++++++++++++++\n";
     foreach($commands as $index => $command) {
@@ -35,6 +35,9 @@ function init()
                 var_dump($MyManager);
                 break;
             case "3":
+                $MyManager->getFilesTree();
+                break;
+            case "4":
                 $terminate = false;
                 break;
             default:

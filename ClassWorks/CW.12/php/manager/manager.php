@@ -86,6 +86,11 @@ class Manager
         return $this->root->search($input);
     }
 
+    public function getFilesTree()
+    {
+        $this->root->printTree(1);
+    }
+
     public function __debugInfo()
     {
         return ["Type" => "Root", "Content" => var_export($this->root, true)];

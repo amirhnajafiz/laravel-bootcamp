@@ -134,6 +134,29 @@ class Dir extends File
         return $list;
     }
 
+    public function getTabs($space)
+    {
+        $temp = " ";
+        for ($i = 0; $i < $space; $i++)
+            $temp = $temp . " ";
+        return $temp;
+    }
+
+    public function printTree($space = 0)
+    {
+        foreach($this->getList() as $file)
+        {
+            echo $this->getTabs($space);
+            echo "|____ ";
+            echo $file->getName();
+            echo "\n";
+            if ($file instanceof $this)
+            {
+                $file->printTree($space + 6);
+            }
+        }
+    }
+
     public function __debugInfo()
     {
         $temp = [];
