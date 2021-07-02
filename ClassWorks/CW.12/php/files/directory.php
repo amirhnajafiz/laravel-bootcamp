@@ -138,7 +138,12 @@ class Dir extends File
     {
         $temp = " ";
         for ($i = 0; $i < $space; $i++)
-            $temp = $temp . " ";
+        {
+            if ($i % 6 == 0)
+                $temp = $temp . "|";
+            else    
+                $temp = $temp . " ";
+        }
         return $temp;
     }
 
@@ -147,7 +152,9 @@ class Dir extends File
         foreach($this->getList() as $file)
         {
             echo $this->getTabs($space);
-            echo "|____ ";
+            echo "\n";
+            echo $this->getTabs($space);
+            echo "____ ";
             echo $file->getName();
             echo "\n";
             if ($file instanceof $this)
