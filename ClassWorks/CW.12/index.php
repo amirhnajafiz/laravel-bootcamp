@@ -70,7 +70,22 @@ $MyManager->loadFiles($list);
 					</div>
 				<?php } ?>
 			<?php } ?>
-			<a class="btn btn-danger" href="<?php echo getOldAdress($address) ?>">Back</a>
+			<a class="btn btn-danger" href="<?php echo getOldAdress($address); ?>">Back</a>
+			<div class="row m-0 mt-3 p-0">
+				<form action="response.php" method="GET">
+					<input type="text" class="form-control m-0 mt-3" name="name" placeholder="File name..." />
+					<textarea name="content" class="form-control m-0 mt-3" placeholder="Your content..."></textarea>
+					<label style="margin-right: 15px;">File type:</label>
+					<input type="radio" class="m-0 mt-3" id="text" name="type" value="txt" />
+					<label for="text" style="margin-right: 15px;">Text</label>
+					<input type="radio" class="m-0 mt-3" id="image" name="type" value="img" />
+					<label for="image">Image (JPG, PNG, SVG, ...)</label>
+					<input type="radio" class="m-0 mt-3" id="directory" name="type" value="dir" />
+					<label for="directory">Directory</label>
+					<input type="hidden" name="dir" value=<?php echo $address; ?> />
+					<input type="submit" class="btn btn-primary m-0 mt-3 d-block" value="Create" />
+				</form>
+			</div>
 		</div>
 	</body>
 </html>

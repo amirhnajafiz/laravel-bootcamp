@@ -11,11 +11,25 @@ $MyManager->loadFiles($list);
 
 // Enter your inputs in here
 // =========================
-$out = $MyManager->search("te");
-var_dump($out);
+$input = $_GET;
+
+if ($input['type'] == 'txt')
+{
+    $MyManager->addTextFile($input['name'], $input['content'], $input['dir']);
+}
+if ($input['type'] == 'img')
+{
+    $MyManager->addImgFile($input['name'], $input['content'], $input['dir']);
+}
+if ($input['type'] == 'dir')
+{
+    $MyManager->addDirectory($input['name'], $input['dir']);
+}
 // =========================
 
 delTree('assets/data/');
 $MyManager->makeFiles();
+
+header('Location: index.php');
 
 ?>
