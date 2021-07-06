@@ -10,6 +10,22 @@ if(isset($_GET['dir']))
     $address = "";
 }
 
+function getOldAdress($address)
+{
+	if ($address == "")
+	{
+		return "index.php";
+	} else {
+		$parts = explode("/", $address);
+		if (count($parts) == 2)
+		{
+			return "index.php";
+		} else {
+			return "index.php?dir=" . implode("/", array_slice($parts, 0, count($parts) - 2));
+		}
+	}
+}
+
 $list = getTree('assets/data');
 
 $MyManager = new Manager();
@@ -54,7 +70,7 @@ $MyManager->loadFiles($list);
 					</div>
 				<?php } ?>
 			<?php } ?>
-			<a class="btn btn-danger" href="index.php?dir=<?php echo implode("/", array_slice(explode("/", $address), 0, count(explode("/", $address))-1));?>">Back</a>
+			<a class="btn btn-danger" href="<?php echo getOldAdress($address) ?>">Back</a>
 		</div>
 	</body>
 </html>
