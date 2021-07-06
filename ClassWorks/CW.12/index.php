@@ -50,14 +50,9 @@ $MyManager->loadFiles($list);
 			<?php if ($MyManager->getList("Dir", $address) > 0) { ?>
 				<?php foreach($MyManager->getList("Dir", $address) as $dir) { ?>
 					<div class="row m-0 mb-3 w-50 bg-primary text-light rounded p-2">
-						<?php if (count($dir->getList()) > 0) { ?>
-							<a class="text-light p-0 m-0" href="index.php?dir=<?php echo  $address . $dir->getName() ?>">
-								<?php echo $dir->getName($address); ?>
-							</a>
-						<?php } else { 
-							echo $dir->getName($address);
-						}
-						?>
+						<a class="text-light p-0 m-0" href="index.php?dir=<?php echo  $address . $dir->getName() ?>">
+							<?php echo $dir->getName($address); ?>
+						</a>
 					</div>
 				<?php } ?>
 			<?php } ?>
