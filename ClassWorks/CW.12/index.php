@@ -54,6 +54,7 @@ $MyManager->loadFiles($list);
 					</div>
 				<?php } ?>
 			<?php } ?>
+			<a class="btn btn-danger" href="index.php?dir=<?php echo implode("/", array_slice(explode("/", $address), 0, count(explode("/", $address))-1));?>">Back</a>
 		</div>
 	</body>
 </html>
