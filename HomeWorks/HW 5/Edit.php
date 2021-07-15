@@ -31,6 +31,7 @@
               <div class="p-3 pt-2">
                 <form method="POST" action="php/Edit/Username.php">
                   <label for="username" class="form-label">Username</label>
+                  <input type="hidden" name="olduser" value="<?php echo $_GET['username'] ?>" />
                   <input type="text" class="form-control" placeholder="Name..." name="username" id="username" required />
                   <input type="submit" class="btn btn-primary mt-2" value="Edit" />
                 </form>
