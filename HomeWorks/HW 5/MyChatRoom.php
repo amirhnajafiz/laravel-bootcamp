@@ -41,6 +41,7 @@
                         <?php echo "Welcome " . $_GET['user']; ?>
                       </span>
                       <a href="php/Logout.php?username=<?php echo $_GET['user']; ?>" class="d-inline-block btn btn-danger mt-md-2 mt-sm-2" style="margin-left:10px;">Logout</a>
+                      <a href="Edit.php?username=<?php echo $_GET['user']; ?>" class="d-inline-block btn btn-light mt-md-2 mt-sm-2" style="margin-left:10px;">Edit</a>
                     </div>
                     <div class="my-4 p-2">
                       <!-- A form for adding a new contact -->

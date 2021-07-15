@@ -1,10 +1,3 @@
-<?php
-if (!isset($_GET['user'])) {
-    header('Location: ../SignIn.php?status=notfound');
-    exit();
-}
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -30,31 +23,25 @@ if (!isset($_GET['user'])) {
           <div class="col-5">
             <div class="border border-light rounded w-100 text-light">
               <h2 class="text-center mt-4">Edit your profile</h2>
-              <?php if (isset($_GET['status'])) { ?>
-                <?php if ($_GET['status'] == "invalidusername") { ?>
-                  <div class="alert alert-danger p-2 m-3">
-                    Your username is already token :(
-                  </div>
-                <?php } ?>
-              <?php } ?>
               <?php if (isset($_GET['error'])) { ?>
                 <div class="alert alert-danger p-2 m-3">
                   <?php echo $_GET['error'] ?>
                 </div>
               <?php } ?>
-              <form method="POST" action="php/Edit.php">
-                <div class="p-3 pt-2">
+              <div class="p-3 pt-2">
+                <form method="POST" action="php/Edit/Username.php">
                   <label for="username" class="form-label">Username</label>
                   <input type="text" class="form-control" placeholder="Name..." name="username" id="username" required />
-                </div>
-                <div class="p-3">
+                  <input type="submit" class="btn btn-primary mt-2" value="Edit" />
+                </form>
+              </div>
+              <div class="p-3">
+                <form method="POST" action="php/Edit/Password.php">
                   <label for="password" class="form-label">Password</label>
                   <input type="password" class="form-control" placeholder="Password..." name="password" id="password" required />
-                </div>
-                <div class="p-3 d-grid">
-                  <input type="submit" class="btn btn-primary" value="Edit" />
-                </div>
-              </form>
+                  <input type="submit" class="btn btn-primary mt-2" value="Edit" />
+                </form>
+              </div>
             </div>
           </div>
         </div>
