@@ -40,7 +40,7 @@
                   <?php echo $_GET['error'] ?>
                 </div>
               <?php } ?>
-              <form class="" action="php/SignUp.php">
+              <form method="POST" action="php/SignUp.php" enctype="multipart/form-data">
                 <div class="p-3 pt-2">
                   <label for="username" class="form-label">Username</label>
                   <input type="text" class="form-control" placeholder="Name..." name="username" id="username" required />

@@ -3,17 +3,19 @@
 
   // First we check for the username that it should be unique
   foreach (getUsers() as $user) {
-    if ($user['username'] == $_GET['username']) {
+    if ($user['username'] == $_POST['username']) {
       header('Location: ../SignUp.php?status=invalidusername');
       exit();
     }
   }
 
 
-  $target_dir = "uploads/";
+  $target_dir = "../uploads/";
   $target_file = $target_dir . basename($_FILES["userImg"]["name"]);
   $uploadOk = 1;
-  $imageFileType = 'jpg';
+  $imageFileType = $_FILES["userImg"]["type"];
+  $imageFileType = explode('/', $imageFileType);
+  $imageFileType = $imageFileType[1];
 
   // Check if image file is a actual image or fake image
   if(isset($_POST["submit"])) {
@@ -66,12 +68,12 @@
   $file = fopen('../data/users.txt', 'a');
 
   $data = [
-    "username" => $_GET['username'],
-    "password" => md5($_GET['password']),
+    "username" => $_POST['username'],
+    "password" => md5($_POST['password']),
   ];
 
   fwrite($file, serialize($data) . "\n");
-  fopen("../data/{$_GET['username']}.txt", 'w');
+  fopen("../data/{$_POST['username']}.txt", 'w');
 
   header("Location: ../SignIn.php");
 ?>
