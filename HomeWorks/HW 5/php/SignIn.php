@@ -14,6 +14,9 @@
       header("Location: ../MyChatRoom.php?user={$_GET['username']}");
       exit();
     }
+  } else {
+    header('Location: ../SignIn.php?status=notfound');
+    exit();
   }
 
   header('Location: ../SignIn.php?status=duplicate');

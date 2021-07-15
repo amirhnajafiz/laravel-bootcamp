@@ -74,5 +74,7 @@
   fwrite($file, serialize($data) . "\n");
   fopen("../data/{$_POST['username']}.txt", 'w');
 
+  fclose($file);
+
   header("Location: ../SignIn.php");
 ?>

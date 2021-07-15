@@ -38,6 +38,7 @@
               <div class="p-3">
                 <form method="POST" action="php/Edit/Password.php">
                   <label for="password" class="form-label">Password</label>
+                  <input type="hidden" name="username" value="<?php echo $_GET['username'] ?>" />
                   <input type="password" class="form-control" placeholder="Password..." name="password" id="password" required />
                   <input type="submit" class="btn btn-primary mt-2" value="Edit" />
                 </form>
