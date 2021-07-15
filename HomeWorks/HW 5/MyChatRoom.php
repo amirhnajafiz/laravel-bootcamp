@@ -32,7 +32,10 @@
                 <div class="col-4">
                   <div class="border-end px-3 border-2" style="height: 100vh;">
                     <div class="d-flex flex-wrap align-items-center mb-4 p-2 pt-4" style="color:#ffffff; font-size:20px;"> 
-                      <span class="d-inline-block bg-secondary rounded-circle" style="width:50px; height:50px; margin-right: 5px;">
+                      <span class="d-inline-block bg-light rounded-circle" style="width:70px; height:70px; margin-right: 5px;">
+                        <?php if (file_exists('uploads/' . $_GET['user'])) { ?>
+                          <img src="uploads/<?php echo $_GET['user'] ?>" class="rounded-circle" style="width:70px; height:70px;" alt="user image" />
+                        <?php } ?>
                       </span>
                       <span>
                         <?php echo "Welcome " . $_GET['user']; ?>

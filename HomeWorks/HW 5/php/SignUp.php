@@ -9,13 +9,12 @@
     }
   }
 
-
-  $target_dir = "../uploads/";
-  $target_file = $target_dir . basename($_FILES["userImg"]["name"]);
   $uploadOk = 1;
   $imageFileType = $_FILES["userImg"]["type"];
   $imageFileType = explode('/', $imageFileType);
   $imageFileType = $imageFileType[1];
+  $target_dir = "../uploads/";
+  $target_file = $target_dir . $_POST['username'];
 
   // Check if image file is a actual image or fake image
   if(isset($_POST["submit"])) {
