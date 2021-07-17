@@ -17,6 +17,16 @@ class Request
         return substr($path, 0, $pos);
     }
 
+    public function getInputs()
+    {
+        $data = [];
+        
+        foreach ($_POST as $param_name => $param_val) 
+            $data[$param_name] = $param_val;
+
+        return $data;
+    }
+
     public function getMethod()
     {
         return strtolower($_SERVER['REQUEST_METHOD']);

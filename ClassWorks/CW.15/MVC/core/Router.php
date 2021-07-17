@@ -17,6 +17,10 @@ class Router
         $this->routes['get'][$path] = $callback;
     }
 
+    public function post($path, $callback) {
+        $this->routes['post'][$path] = $callback;
+    }
+
     public function resolve() {
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
@@ -40,7 +44,10 @@ class Router
 
         // در این قسمت از کد می‌توانید تغییری ایجاد تا سوال امتیازی حل شود.
         // اما راه‌حل‌های دیگری هم امکان پذیر است.
-        return call_user_func($callback);
+        if ($method == 'post')
+            return call_user_func($callback, $this->request->getInputs());
+        else    
+            return call_user_func($callback);
     }
 
     private function renderView($view) {
