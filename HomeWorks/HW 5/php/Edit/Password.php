@@ -14,11 +14,11 @@ if (isset($_POST['password']))
         foreach ($users as $user) 
           $data[] = unserialize($user);
         
-        for ($i = 0; $i < count($data); $i++)
+        for ($i = 0; $i < count($data) - 1; $i++)
         {
             if ($data[$i]['username'] == $_POST['username'])
             {
-                $data[$i]['password'] = md5($_POST['password']);
+              $data[$i]['password'] = md5($_POST['password']);
             }
         }
       }
@@ -29,8 +29,8 @@ if (isset($_POST['password']))
     fclose($file);
 
     $file = fopen($filename, 'w');
-    foreach ($data as $single)
-        fwrite($file, serialize($single) . "\n");
+    for ($i = 0; $i < count($data) - 1; $i++)
+      fwrite($file, serialize($data[$i]) . "\n");
     fclose($file);
 }
 
