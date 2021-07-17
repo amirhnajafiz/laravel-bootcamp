@@ -84,7 +84,11 @@
                             <div class="d-flex justify-content-<?php echo $message['sender'] ? "end" : "start"; ?>">
                               <div class="w-50">
                                 <div class="<?php echo $message['sender'] ? "bg-light text-dark" : "bg-dark"; ?> p-2 my-2 rounded">
-                                  <?php echo $message['message']; ?>
+                                  <?php if ($message['isFile']) { ?>
+                                    <img src="<?php echo $message['message']; ?>" width="300" />
+                                  <?php } else { 
+                                    echo $message['message'];
+                                  } ?>
                                   <div class="text-<?php echo $message['sender'] ? "info" : "secondary"; ?>">
                                     <?php echo date('l jS F Y h:i:s A', $message['time'])?>
                                   </div>
@@ -102,6 +106,7 @@
                                 <input type="hidden" name="sender" value="<?php echo $_GET['user'] ?>">
                                 <input type="hidden" name="to" value="<?php echo $_GET['chater'] ?>">
                                 <input type="submit" class="btn mx-2 btn-primary" value="Send">
+                                <a class="btn mx-2 btn-primary" href="SendFile.php/?sender=<?php echo $_GET['user'] ?>&to=<?php echo $_GET['chater'] ?>">File</a>
                             </div>
                           </form>
                         </div>

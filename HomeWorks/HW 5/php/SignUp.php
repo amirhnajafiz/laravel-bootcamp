@@ -45,7 +45,7 @@
     }
 
     // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
       header("Location: ../SignUp.php?error=Sorry, only JPG, JPEG, PNG, GIF files are allowed. " . $imageFileType);
       exit();
       $uploadOk = 0;

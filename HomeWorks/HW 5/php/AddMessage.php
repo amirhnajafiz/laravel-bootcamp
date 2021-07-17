@@ -8,7 +8,7 @@
    * @param time is the time of the message
    * @param sender to check if the user is sender or seciver
    */
-  function addMessage($filename, $to, $message, $time, bool $sender) {
+  function addMessage($filename, $to, $message, $time, bool $sender, bool $isFile = false) {
 
     $json = json_decode(file_get_contents($filename), true);
 
@@ -20,6 +20,7 @@
       'message' => $message,
       'time' => time(),
       'sender' => $sender,
+      'isFile' => $isFile
     ];
 
     file_put_contents($filename, json_encode($json));
