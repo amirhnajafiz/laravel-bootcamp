@@ -27,23 +27,14 @@ class Router
         
         $callback = $this->routes[$method][$path] ?? false;
         if ($callback === false) {
-            # TODO: تمرین ۳
-            /* وقتی به روت درخواست داده می‌شود که وجود ندارد باید status code ۴۰۴ به کاربر برگردد.
-            قابلیت استاتوس کد باید همانند کلاس Request پیاده سازی شود و اصطلاحا هاردکد نباشد و کلاس مخصوص داشته باشد.
-            */
-
-            # TODO: تمرین ۴
-            /* یک layout مخصوص صفحه خطا ایجاد کنید. */
-
-            return "Not Found";
+            http_response_code(404);
+            return $this->renderView('404');
         }
 
         if (is_string($callback)) {
             return $this->renderView($callback);
         }
 
-        // در این قسمت از کد می‌توانید تغییری ایجاد تا سوال امتیازی حل شود.
-        // اما راه‌حل‌های دیگری هم امکان پذیر است.
         if ($method == 'post')
             return call_user_func($callback, $this->request->getInputs());
         else    

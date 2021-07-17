@@ -4,6 +4,15 @@ require_once "../vendor/autoload.php";
 
 use app\core\Application;
 
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+// create a log channel
+$log = new Logger('name');
+$log->pushHandler(new StreamHandler('php://stdout', Logger::WARNING));
+
+// add records to the log
+$log->warning('Logger Started');
 
 $app = new Application();
 
@@ -28,9 +37,3 @@ $app->router->get('/contact', function() {
 });
 
 $app->run();
-
-# TODO: تمرین شماره ۵
-/*
-    یک پکیج خارجی هم به پروژه اضافه کنید و در جایی از آن استفاده کنید.
-    پکیج دلخواه بوده و نحوه استفاده با خودتان است.
-*/

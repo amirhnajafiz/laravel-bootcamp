@@ -5,7 +5,9 @@
         "name": "Ehsan Kashfi",
         "email": "ehsanmody04@gmail.com"
     }],
-    "require": {},
+    "require": {
+        "monolog/monolog": "^2.3"
+    },
     "autoload": {
         "psr-4": {
             "app\\": "./"
