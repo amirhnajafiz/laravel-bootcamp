@@ -1,3 +1,2 @@
 a:2:{s:8:"username";s:12:"Tony Mantara";s:8:"password";s:32:"81dc9bdb52d04dc20036dbd8313ed055";}
-a:2:{s:8:"username";s:11:"Amirhossein";s:8:"password";s:32:"81dc9bdb52d04dc20036dbd8313ed055";}
 a:2:{s:8:"username";s:8:"Stan Lee";s:8:"password";s:32:"c850371fda6892fbfd1c5a5b457e5777";}

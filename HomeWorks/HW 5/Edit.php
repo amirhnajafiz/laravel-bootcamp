@@ -44,6 +44,12 @@
                   <input type="submit" class="btn btn-primary mt-2" value="Edit" />
                 </form>
               </div>
+              <div class="p-3">
+                <form method="POST" action="php/Edit/Delete.php">
+                  <input type="hidden" name="username" value="<?php echo $_GET['username'] ?>" />
+                  <input type="submit" class="btn btn-danger mt-2" value="Delete Account" />
+                </form>
+              </div>
             </div>
           </div>
         </div>
