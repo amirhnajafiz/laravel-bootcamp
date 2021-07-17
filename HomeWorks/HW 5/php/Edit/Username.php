@@ -57,6 +57,8 @@ if (isset($_POST['username']))
   $content = file_get_contents('../../data/online.txt');
   $content = str_replace($_POST['olduser'], $_POST['username'], $content);
   file_put_contents('../../data/online.txt', $content);
+
+  rename("../../uploads/{$_POST['olduser']}", "../../uploads/{$_POST['username']}");
 }
 
 header("Location: ../../MyChatRoom.php?user=" . $_POST['username']);

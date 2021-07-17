@@ -38,6 +38,9 @@ if (isset($_POST['username']))
   $content = file_get_contents('../../data/online.txt');
   $content = str_replace("$$--" . $_POST['username'], "", $content);
   file_put_contents('../../data/online.txt', $content);
+
+  if (file_exists("../../uploads/{$_POST['username']}"))
+    unlink("../../uploads/{$_POST['username']}");
 }
 
 header("Location: ../../SignIn.php");
