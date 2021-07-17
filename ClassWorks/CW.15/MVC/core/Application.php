@@ -16,9 +16,4 @@ class Application
     public function run() {
         echo $this->router->resolve();
     }
-
-    public function FunctionName(Type $var = null)
-    {
-        # TODO: این متد برای فلان است.
-    }
 }
