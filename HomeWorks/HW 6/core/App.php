@@ -60,7 +60,7 @@ class App
      */
     public function run()
     {
-        echo "Start";
+        echo $this->router->resolve();
     }
 }
 
