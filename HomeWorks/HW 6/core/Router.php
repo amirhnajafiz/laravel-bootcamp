@@ -65,6 +65,8 @@ class Router
             $code = 404;
             $this->response->setStatusCode($code);
             $layout = $this->loadLayout();
+            $layout = str_replace("{{navbar}}", "", $layout);
+            $layout = str_replace("{{footer}}", "", $layout);
             $view = $this->loadView("errors/_404", compact('code'));
             return str_replace("{{content}}", $view, $layout);
         }
@@ -86,6 +88,10 @@ class Router
     public function renderView($view, $params = [])
     {
         $layout = $this->loadLayout();
+        $header = $this->loadHeader();
+        $footer = $this->loadFooter();
+        $layout = str_replace("{{navbar}}", $header, $layout);
+        $layout = str_replace("{{footer}}", $footer, $layout);
         $view = $this->loadView($view, $params);
         return str_replace("{{content}}", $view, $layout);
     }
@@ -95,7 +101,7 @@ class Router
      * parameters.
      * 
      */
-    protected function loadView($view, $params) 
+    protected function loadView($view, $params = []) 
     {
         foreach ($params as $key => $value) 
         {
@@ -103,6 +109,28 @@ class Router
         }
         ob_start();
         include_once App::$ROOT . "/view/" . $view . ".php";
+        return ob_get_clean();
+    }
+
+    protected function loadHeader($params = [])
+    {
+        foreach ($params as $key => $value) 
+        {
+            $$key = $value;
+        }
+        ob_start();
+        include_once App::$ROOT . "/view/layouts/header.php";
+        return ob_get_clean();
+    }
+
+    protected function loadFooter($params = [])
+    {
+        foreach ($params as $key => $value) 
+        {
+            $$key = $value;
+        }
+        ob_start();
+        include_once App::$ROOT . "/view/layouts/footer.php";
         return ob_get_clean();
     }
 
