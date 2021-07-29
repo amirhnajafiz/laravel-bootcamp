@@ -112,6 +112,11 @@ class Router
         return ob_get_clean();
     }
 
+    /**
+     * This method renders the header of the website.
+     * 
+     * @param params is the parameters given to the header
+     */
     protected function loadHeader($params = [])
     {
         foreach ($params as $key => $value) 
@@ -123,6 +128,11 @@ class Router
         return ob_get_clean();
     }
 
+    /**
+     * This method loads the footer of the website.
+     * 
+     * @param params the parameters given to footer
+     */
     protected function loadFooter($params = [])
     {
         foreach ($params as $key => $value) 
