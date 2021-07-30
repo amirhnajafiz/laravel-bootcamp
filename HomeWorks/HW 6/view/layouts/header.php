@@ -17,6 +17,9 @@
       <li class="nav-item">
         <a class="nav-link <?php if ($URI == "/sign_up") echo $current_span; ?>" href="/sign_up">Register</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link <?php if ($URI == "/upload") echo $current_span; ?>" href="/upload">Upload</a>
+      </li>
     </ul>
   </div>
 </nav>

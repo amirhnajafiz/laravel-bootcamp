@@ -2,13 +2,13 @@
 
 namespace mvc\controller;
 
-use mvc\core\Application;
+use mvc\core\App;
 
 class BaseController
 {
     public function render($view, $params = []) 
     {
-        return Application::$app->router->renderView($view, $params);
+        return App::$app->router->renderView($view, $params);
     }
 }
 

@@ -3,6 +3,7 @@
 namespace mvc\core;
 
 use mvc\core\App;
+use mvc\controller\UserController;
 
 class Routes
 {
@@ -14,6 +15,9 @@ class Routes
         $app->router->get('/', 'home');
         $app->router->get('/sign_up', 'sign_up');
         $app->router->get('/login', 'login');
+        $app->router->get('/upload', 'fileUpload');
+        $app->router->post('/dashboard', [UserController::class, 'index']);
+        $app->router->post('/upload', [UserController::class, 'upload']);
     }
 }
 
