@@ -6,14 +6,8 @@ use app\controller\Controller;
 
 class HomeController extends Controller {
     public function index() {
-        # Render the first page (index.php)
-        $this->render('index');
-    }
-
-    public function home() {
-        # Check if user is admin - render the admin view
-        # If user is normal - render the normal user view
-        # Default - send the user to home page
+        # Show the home page with the list of books
+        $this->render('home');
     }
 
     public function login() {

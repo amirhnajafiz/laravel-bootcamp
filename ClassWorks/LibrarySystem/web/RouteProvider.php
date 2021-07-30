@@ -17,7 +17,6 @@ class RouteProvider {
         Route::get('/', [HomeController::class, 'index']);
 
         // Dashboard route
-        Route::get('/home', [HomeController::class, 'home']);
         Route::get('/login', [HomeController::class, 'login']);
         Route::get('/sign_up', [HomeController::class, 'sign_up']);
 
