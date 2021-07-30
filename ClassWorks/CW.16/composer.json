@@ -1,16 +1,11 @@
 {
-    "name": "amirh/mvc",
-    "description": "Create a website based on MVC model",
+    "name": "maktab/library",
+    "description": "just a practice",
+    "require": {},
     "autoload": {
         "psr-4": {
-            "mvc\\": "./"
+            "app\\": "app/",
+            "route\\": "web/"
         }
-    },
-    "authors": [
-        {
-            "name": "Amirhossein Najafizadeh",
-            "email": "najafizadeh21@gmail.com"
-        }
-    ],
-    "require": {}
+    }
 }

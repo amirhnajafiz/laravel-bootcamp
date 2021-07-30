@@ -5,6 +5,7 @@ namespace mvc\core;
 use mvc\core\Request;
 use mvc\core\Router;
 use mvc\core\Response;
+use mvc\core\Routes;
 
 /**
  * App class is the main class of our website, where
@@ -45,11 +46,12 @@ class App
      * @param root_dir is the directory of our website
      * @return app the created app instance
      */
-    public static function get_instance($root_dir)
+    public static function get_instance($root_dir=NULL)
     {
         if (!isset(self::$app))
         {
             self::$app = new App($root_dir);
+            Routes::getRoutes();
         }
         return self::$app;
     }

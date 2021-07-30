@@ -1,3 +1,1 @@
-<h1>
-    <?php echo "Home page"; ?>
-</h1>
+<h3>it is home</h3>
