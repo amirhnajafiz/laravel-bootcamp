@@ -11,9 +11,13 @@ class AdminUserController extends UserController {
         # After that redirect to the admin user view
     }
 
-    public function add_author() {
-        # First we check validation
-        # Then we add the author in model
+    public function edit_book($book) {
+        # Do the updates
+        # After that redirect to the admin user view
+    }
+
+    public function remove_book($book) {
+        # Do the delete function
         # After that redirect to the admin user view
     }
 

@@ -31,7 +31,8 @@ class RouteProvider {
 
         // Admin user routes
         Route::post('/add_book', [AdminUserController::class, 'add_book']);
-        Route::post('/add_author', [AdminUserController::class, 'add_author']);
+        Route::post('/edit_book', [AdminUserController::class, 'edit_book']);
+        Route::post('/remove_book', [AdminUserController::class, 'remove_book']);
         Route::post('/request_answer', [AdminUserController::class, 'request_answer']);
         Route::post('/change_borrow_status', [AdminUserController::class, 'change_borrow_status']);
 
