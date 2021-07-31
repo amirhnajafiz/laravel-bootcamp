@@ -2,13 +2,17 @@
 
 namespace app\controller;
 
-use app\controller\UserController;
+use app\core\Request;
+use app\models\Book;
+use app\models\Reserved;
 
 class AdminUserController extends UserController {
-    public function add_book($data) {
-        # First we check validation
-        # Then we add the book in model
-        # After that redirect to the admin user view
+    
+    public function addBook(Request $request) {
+
+        Book::Do()->insert($request->getParams());
+        header("Location: /dashboard");
+    
     }
 
     public function edit_book($book) {
@@ -21,10 +25,19 @@ class AdminUserController extends UserController {
         # After that redirect to the admin user view
     }
 
-    public function request_answer($request) {
-        # Accept the request 
-        # Update the model
-        # After that send to admin user view
+    public function requestResponse(Request $request) {
+        $action = $request->getParams()['action'];
+        $id = $request->getParams()['reserve_id'];
+
+        switch ($action) {
+            case 'accept':
+                Reserved::Do()->accept($id);
+                break;
+            case 'reject':
+                Reserved::Do()->reject($id);
+        }
+
+        header("Location: /dashboard");
     }
 
     public function change_borrow_status($book) {

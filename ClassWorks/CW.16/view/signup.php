@@ -1,22 +1,22 @@
 <div class="container">
         <h3 class="text-center my-4">please fill the information below to join our website</h3>
-    <form>
+    <form method="post" action="/signUp">
     <div class="mb-3">
-    <label for="fullname" class="form-label">Fullname</label>
-    <input type="text" class="form-control" id="fullname" >
+    <label for="firstname" class="form-label">Firstname</label>
+    <input name='firstname' type="text" class="form-control" id="firstname" >
   </div>
   <div class="mb-3">
-    <label for="tell" class="form-label">Tell</label>
-    <input type="tel" class="form-control" id="tell" >
+    <label for="lastname" class="form-label">Lastname</label>
+    <input name='lastname' type="text" class="form-control" id="lastname" >
   </div>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="email" class="form-label">Email address</label>
+    <input name='email' type="email" class="form-control" id="email" aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input name='password' type="password" class="form-control" id="exampleInputPassword1">
   </div>
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">

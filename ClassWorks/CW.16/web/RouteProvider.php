@@ -18,22 +18,23 @@ class RouteProvider {
 
         // Dashboard route
         Route::get('/login', [HomeController::class, 'login']);
-        Route::get('/sign_up', [HomeController::class, 'sign_up']);
+        Route::get('/signUp', [HomeController::class, 'signUp']);
+        Route::get('/dashboard', [UserController::class, 'showDashboard']);
 
         // Login route
         Route::post('/login', [UserController::class, 'login']);
 
         // Normal user routes
-        Route::post('/sign_up', [NormalUserController::class, 'sign_up']);
-        Route::post('/borrow_book', [NormalUserController::class, 'borrow_book']);
+        Route::post('/signUp', [NormalUserController::class, 'signUp']);
+        Route::post('/borrowBook', [NormalUserController::class, 'borrowBook']);
         Route::post('/show_borrows', [NormalUserController::class, 'show_borrows']);
-        Route::post('/return_book', [NormalUserController::class, 'return_book']);
+        Route::post('/returnBook', [NormalUserController::class, 'returnBook']);
 
         // Admin user routes
-        Route::post('/add_book', [AdminUserController::class, 'add_book']);
+        Route::post('/addBook', [AdminUserController::class, 'addBook']);
         Route::post('/edit_book', [AdminUserController::class, 'edit_book']);
         Route::post('/remove_book', [AdminUserController::class, 'remove_book']);
-        Route::post('/request_answer', [AdminUserController::class, 'request_answer']);
+        Route::post('/requestResponse', [AdminUserController::class, 'requestResponse']);
         Route::post('/change_borrow_status', [AdminUserController::class, 'change_borrow_status']);
 
     }       

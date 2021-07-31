@@ -5,6 +5,7 @@ namespace app\models;
 use app\core\Model;
 
 class User extends Model {
+    protected static $instance = null;
     
     public static function Do() {
 

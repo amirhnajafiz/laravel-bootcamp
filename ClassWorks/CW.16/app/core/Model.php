@@ -3,7 +3,6 @@
 namespace app\core;
 
 abstract class Model {
-    protected static $instance = null;
     protected string $tableName;
     protected $db;
 
@@ -27,8 +26,7 @@ abstract class Model {
 
     public function select(string $columns, string $condition = "TRUE") {
 
-        $query = "SELECT {$columns} FROM library.{$this->tableName} ";
-        echo $query;
+        $query = "SELECT {$columns} FROM library.{$this->tableName} WHERE $condition ";
         return $this->db->query($query)->fetchAll();
 
     }
@@ -37,6 +35,16 @@ abstract class Model {
         $data = [];
         array_walk($params, function ($value, $key) use (&$data) {$data[':' . $key] = $value;});
         $this->db->prepare($this->makeInsertQuery(array_keys($params), array_keys($data)))->execute($data);
+    }
+
+    public function update(array $newValues, string $condition) {
+        $this->db->exec($this->makeUpdateQuery($newValues, $condition));
+    }
+
+    public function remove(string $condition) {
+        
+        $query = "DELETE FROM {$this->tableName} WHERE $condition;";
+        $this->db->exec($query);
     }
 
     private function makeInsertQuery($array1, $array2) {
@@ -59,4 +67,11 @@ abstract class Model {
 
     }
 
+    private function makeUpdateQuery($values, $condition) {
+        $query = "UPDATE {$this->tableName} SET ";
+        foreach ($values as $key => $value)
+            $query .= "$key='$value',";
+
+        return substr($query, 0, strlen($query) - 1) . " WHERE $condition;";
+    }
 }

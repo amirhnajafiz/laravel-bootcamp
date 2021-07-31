@@ -2,10 +2,12 @@
 
 namespace app\controller;
 
-use app\controller\Controller;
-use app\controller\HomeController;
+use app\core\Request;
+use app\core\Auth;
+use app\models\User;
+use app\models\Reserved;
 
-class UserController extends Controller {
+ class UserController extends Controller {
 
     protected HomeController $homeController;
 
@@ -13,19 +15,34 @@ class UserController extends Controller {
         $this->homeController = new HomeController();
     }
 
-    public function login($username, $password) {
-        # Validate the username and password to database
-        # Assume we store the result in a object called user
-        $user;
-        if ($user) {
-            if ($user->is_admin) {
-                # Render the admin user page
-            } else {
-                # Render the normal user page
-            }
-        } else {
-            $this->homeController->index();
+    public function showDashboard() {
+        $type = $_COOKIE['user_type'];
+
+        $data = ['title' => 'dashboard'];
+
+        if ($type == 'admin') {
+            $data['requests'] = Reserved::Do()->getRequests();
+            $this->render('adminPanel', $data);
         }
+        else {
+            $data['books'] = Reserved::Do()->getBooks(Auth::getId());
+            $this->render('userPanel', $data);
+        }
+    }
+
+    public function login(Request $request) {
+        $data = $request->getParams();
+
+        $user = User::Do()->select("id,type", "email='{$data['email']}' AND password='{$data['password']}';");
+        
+        if ($user != [] ) {
+            setcookie('user_id', $user[0]['id'], ['path' => '/']);
+            setcookie('user_type', $user[0]['type'], ['path' => '/']);
+            header("Location: /dashboard");
+            exit();
+        }
+
+        header("Location: /login");
     }
 }
 

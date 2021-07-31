@@ -15,6 +15,7 @@ class App {
         self::$root = substr($_SERVER['DOCUMENT_ROOT'], 0, strlen($_SERVER['DOCUMENT_ROOT']) - 7);
         $this->request = new Request();
         $this->route = new Route($this->request);
+        Auth::init();
     }
 
     public function run() {

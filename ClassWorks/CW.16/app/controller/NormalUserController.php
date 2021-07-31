@@ -2,25 +2,41 @@
 
 namespace app\controller;
 
-use app\controller\UserController;
+use app\core\Request;
+use app\models\User;
+use app\models\Reserved;
 
 class NormalUserController extends UserController {
-    public function sign_up($data) {
-        # Do sign up
-        # First we get the data from our request
-        # Assume that the data is stored in data
-        if ($data) {
-            # Create a new user in database and render the normal user view
-        } else {
-            # Return to sign up page with error
+
+    public function signUp(Request $request) {
+        $data = $request->getParams();
+
+        $user = User::Do()->select("id", "email='{$data['email']}'");
+        
+        if ($user != []) {
+            header("Location: /signUp");
+            exit();
         }
+
+        $data['type'] = 'normal';
+        User::Do()->insert($data);
+
+        header("Location: /login");
+
     }
 
-    public function borrow_book($book) {
-        # Do borrowing
-        # Check if the book is free
-        # Create a request to admin
-        # Redirect to normal user view
+    public function borrowBook(Request $request) {
+        $book_id = $request->getParams()['book_id'];
+        $user_id = $request->getParams()['user_id'];
+
+        Reserved::Do()->insert([
+            'user_id' => $user_id,
+            'book_id' => $book_id,
+            'start_time' => time(),
+            'deadline_time' => time() + 25200,
+        ]);
+
+        header("Location: /");
     }
 
     public function show_borrows() {
@@ -28,10 +44,11 @@ class NormalUserController extends UserController {
         # Redirect to normal user view
     }
 
-    public function return_book($book) {
-        # Check validation
-        # Return the borrowed book
-        # Redirect to normal user view
+    public function returnBook(Request $request) {
+        $id = $request->getParams()['reserve_id'];
+        Reserved::Do()->returned($id);
+        echo "ye kary kardam";
+        header("Location: /dashboard");
     }
 }
 

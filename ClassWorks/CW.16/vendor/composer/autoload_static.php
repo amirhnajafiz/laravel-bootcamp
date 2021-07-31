@@ -30,12 +30,17 @@ class ComposerStaticInit9f6847e44de4bf7ff414a0c01aeede62
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'app\\controller\\AdminUserController' => __DIR__ . '/../..' . '/app/controller/AdminUserController.php',
         'app\\controller\\Controller' => __DIR__ . '/../..' . '/app/controller/Controller.php',
         'app\\controller\\HomeController' => __DIR__ . '/../..' . '/app/controller/HomeController.php',
+        'app\\controller\\NormalUserController' => __DIR__ . '/../..' . '/app/controller/NormalUserController.php',
+        'app\\controller\\UserController' => __DIR__ . '/../..' . '/app/controller/UserController.php',
         'app\\core\\App' => __DIR__ . '/../..' . '/app/core/App.php',
+        'app\\core\\Model' => __DIR__ . '/../..' . '/app/core/Model.php',
         'app\\core\\Request' => __DIR__ . '/../..' . '/app/core/Request.php',
         'app\\core\\Route' => __DIR__ . '/../..' . '/app/core/Route.php',
         'app\\core\\View' => __DIR__ . '/../..' . '/app/core/View.php',
+        'app\\models\\User' => __DIR__ . '/../..' . '/app/models/User.php',
         'route\\RouteProvider' => __DIR__ . '/../..' . '/web/RouteProvider.php',
     );
 

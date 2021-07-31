@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+use app\core\Auth;
+
 class View {
     private $layout = "";
 
@@ -45,9 +47,19 @@ class View {
      * render the final view
      */
     public function renderView(string $viewName, array $params) : void {
+
+        foreach ($params as $key => $value)
+            $$key = $value; 
+
+        ob_start();
+
+        include App::$root . "/view/$viewName.php";
+
+        $view = ob_get_clean();
+
         $this->layout = str_replace(
             '{{content}}', 
-            file_get_contents(App::$root . "/view/$viewName.php"),
+            $view,
             $this->layout
         );
 
