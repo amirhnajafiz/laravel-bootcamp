@@ -14,9 +14,9 @@ abstract class Model {
     }
 
     private function connect() {
-        $dsn = "mysql:host=127.0.0.1;dbname=library";
+        $dsn = "mysql:host=127.0.0.1;post:3440;dbname=library";
         $user = "root";
-        $pass = "13801019";
+        $pass = "";
         try {
             $this->db = new \PDO($dsn, $user, $pass);
         } catch(\PDOException $e) {
