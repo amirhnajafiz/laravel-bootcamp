@@ -14,13 +14,15 @@ abstract class Model {
     }
 
     private function connect() {
-        $dsn = "mysql:host=127.0.0.1;post:3440;dbname=library";
-        $user = "root";
-        $pass = "";
+        $dsn = "mysql:host=localhost;port:3440;dbname=library";
+        $user = 'root';
+        $pass = '';
         try {
             $this->db = new \PDO($dsn, $user, $pass);
+            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch(\PDOException $e) {
             echo $e->getMessage();
+            exit();
         }
     }
 
