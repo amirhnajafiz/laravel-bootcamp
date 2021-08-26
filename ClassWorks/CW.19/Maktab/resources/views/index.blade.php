@@ -2,8 +2,8 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     </head>
-    <body>
-        <div class="container">
+    <body class="bg-secondary">
+        <div class="container w-25 mt-5 p-5 bg-dark text-light rounded">
             <div class="border-bottom">
                 <form action="/create" method="post">
                 @csrf <!-- {{ csrf_field() }} -->
@@ -29,14 +29,14 @@
                         <label for="exampleInputEmail1">Search</label>
                         <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name...">
                     </div>
-                    <button type="submit" class="btn btn-primary">Find</button>
+                    <button type="submit" class="btn btn-primary">Go</button>
                 </form>
                 <?php if (isset($username)) { ?>
-                    <div class="w-25 p-2 rounded bg-success text-light">
-                        <?php echo $username; ?>
+                    <div class="w-100 p-2 rounded bg-success text-light">
+                        <?php echo "Email: " . $username; ?>
                     </div>
                 <?php } else { ?>
-                    <div class="w-25 p-2 rounded bg-warning text-dark">
+                    <div class="w-100 p-2 rounded bg-danger text-light">
                         <?php echo "No result"; ?>
                     </div>
                 <?php } ?>
