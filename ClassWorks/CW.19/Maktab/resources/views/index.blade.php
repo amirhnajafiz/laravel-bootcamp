@@ -5,10 +5,15 @@
     <body>
         <div class="container">
             <div class="border-bottom">
-                <form action="/create" method="get">
+                <form action="/create" method="post">
+                @csrf <!-- {{ csrf_field() }} -->
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>
                         <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name...">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail2">Email</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email...">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
@@ -19,6 +24,7 @@
             </div>
             <div class="mt-3">
                 <form action="/find" method="get">
+                @csrf <!-- {{ csrf_field() }} -->
                     <div class="form-group">
                         <label for="exampleInputEmail1">Search</label>
                         <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name...">
@@ -26,7 +32,7 @@
                     <button type="submit" class="btn btn-primary">Find</button>
                 </form>
                 <?php if (isset($username)) { ?>
-                    <div class="w-25 p-2 rounded bg-sucess text-light">
+                    <div class="w-25 p-2 rounded bg-success text-light">
                         <?php echo $username; ?>
                     </div>
                 <?php } else { ?>
